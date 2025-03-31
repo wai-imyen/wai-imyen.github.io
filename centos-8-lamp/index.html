@@ -20,25 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wai-imyen.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="@wai-imyen">
-<meta property="og:type" content="website">
-<meta property="og:title" content="I&#39;m Yen">
-<meta property="og:url" content="https://wai-imyen.github.io/index.html">
+    <meta name="description" content="僅作為個人紀錄用，不保證持續更新 安裝 Apache1sudo yum -y install httpd  加入  EPEL 套件庫12sudo yum -y install epel-releasesudo rpm -Uvhhttp:&#x2F;&#x2F;rpms.famillecollet.com&#x2F;enterprise&#x2F;remi-release-8.rpm  更新套件1sudo yum -y update  安">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS 8 架設 LAMP">
+<meta property="og:url" content="https://wai-imyen.github.io/centos-8-lamp/index.html">
 <meta property="og:site_name" content="I&#39;m Yen">
-<meta property="og:description" content="@wai-imyen">
+<meta property="og:description" content="僅作為個人紀錄用，不保證持續更新 安裝 Apache1sudo yum -y install httpd  加入  EPEL 套件庫12sudo yum -y install epel-releasesudo rpm -Uvhhttp:&#x2F;&#x2F;rpms.famillecollet.com&#x2F;enterprise&#x2F;remi-release-8.rpm  更新套件1sudo yum -y update  安">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-12-30T04:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-30T04:00:00.000Z">
 <meta property="article:author" content="Yen Chen">
-<meta property="article:tag" content="軟體開發, 後端, 技術分享">
+<meta property="article:tag" content="網站架設">
+<meta property="article:tag" content="LAMP">
+<meta property="article:tag" content="CentOS">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://wai-imyen.github.io/">
+<link rel="canonical" href="https://wai-imyen.github.io/centos-8-lamp/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-TW","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://wai-imyen.github.io/centos-8-lamp/","path":"/centos-8-lamp/","title":"CentOS 8 架設 LAMP"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>I'm Yen</title>
+<title>CentOS 8 架設 LAMP | I'm Yen</title>
   
 
 
@@ -68,7 +72,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">I'm Yen</h1>
+      <p class="site-title">I'm Yen</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">想到什麼寫什麼 🏝️</p>
@@ -91,7 +95,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目錄
@@ -104,6 +108,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-Apache"><span class="nav-number">1.</span> <span class="nav-text">安裝 Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%85%A5-EPEL-%E5%A5%97%E4%BB%B6%E5%BA%AB"><span class="nav-number">2.</span> <span class="nav-text">加入  EPEL 套件庫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E5%A5%97%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">更新套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-PHP"><span class="nav-number">4.</span> <span class="nav-text">安裝 PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E9%9C%80%E6%B1%82%EF%BC%8C%E7%B7%A8%E8%BC%AF-etc-php-ini-%E8%A8%AD%E5%AE%9A%E6%AA%94"><span class="nav-number">5.</span> <span class="nav-text">依需求，編輯 &#x2F;etc&#x2F;php.ini 設定檔</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A6%96%E6%83%85%E6%B3%81%E5%8F%AF%E4%BF%AE%E6%94%B9%E8%A8%AD%E5%AE%9A%E6%AA%94-ex-%E4%BF%AE%E6%94%B9%E7%9B%AE%E9%8C%84-%E4%BF%AE%E6%94%B9%E6%AC%8A%E9%99%90%E2%80%A6-%E7%AD%89"><span class="nav-number">6.</span> <span class="nav-text">視情況可修改設定檔 (ex: 修改目錄, 修改權限… 等)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%95%9Fapache-%E4%B8%A6%E8%A8%AD%E5%AE%9A%E9%96%8B%E6%A9%9F%E8%87%AA%E5%8B%95%E5%95%9F%E5%8B%95"><span class="nav-number">7.</span> <span class="nav-text">重啟apache 並設定開機自動啟動</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%81%E8%A8%B1Http%E5%92%8CMySQL%E9%80%9A%E9%81%8E%E9%98%B2%E7%81%AB%E7%89%86-%E9%9C%80%E5%B7%B2%E8%A3%9D%E9%81%8E-firewall"><span class="nav-number">8.</span> <span class="nav-text">允許Http和MySQL通過防火牆 (需已裝過 firewall)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%85%A5-MariaDB-%E5%A5%97%E4%BB%B6%E5%BA%AB-%EF%BC%9A"><span class="nav-number">9.</span> <span class="nav-text">加入 MariaDB 套件庫 ：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9DphpMyAdmin-%E5%9C%A8-var-www-html%E4%B8%8B"><span class="nav-number">10.</span> <span class="nav-text">安裝phpMyAdmin (在&#x2F;var&#x2F;www&#x2F;html下)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E5%95%9F%E5%8B%95-Apache"><span class="nav-number">11.</span> <span class="nav-text">重新啟動 Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%9C%E9%96%89SELINUX%EF%BC%8C%E9%81%BF%E5%85%8D%E7%94%A2%E7%94%9F%E6%AC%8A%E9%99%90%E5%95%8F%E9%A1%8C"><span class="nav-number">12.</span> <span class="nav-text">關閉SELINUX，避免產生權限問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E6%AA%94%E6%A1%88%E6%AC%8A%E9%99%90"><span class="nav-number">13.</span> <span class="nav-text">設定檔案權限</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -145,175 +150,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wai-imyen.github.io/tamagotchi-mcp-server/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yen Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="I'm Yen">
-      <meta itemprop="description" content="@wai-imyen">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | I'm Yen">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/tamagotchi-mcp-server/" class="post-title-link" itemprop="url">實作 MCP Server：以「電子雞養成遊戲」為例</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2025-03-29 20:27:05" itemprop="dateCreated datePublished" datetime="2025-03-29T20:27:05+08:00">2025-03-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2025-03-31 20:48:50" itemprop="dateModified" datetime="2025-03-31T20:48:50+08:00">2025-03-31</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          MCP 是什麼？MCP 是一種開放協定，讓 AI 透過標準化方式與外部工具互動。本文介紹我如何使用 Python、FastAPI 實作一個 MCP Server，透過一個簡化的電子雞養成遊戲作為案例。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/tamagotchi-mcp-server/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wai-imyen.github.io/useful-prompt/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yen Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="I'm Yen">
-      <meta itemprop="description" content="@wai-imyen">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | I'm Yen">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/useful-prompt/" class="post-title-link" itemprop="url">實用 Prompt</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2025-02-28 23:36:11" itemprop="dateCreated datePublished" datetime="2025-02-28T23:36:11+08:00">2025-02-28</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          日常收集的一些實用 AI 提示詞，方便隨時複製貼上就能用，包含：好用的提示詞模式、實用框架收藏、日常實用模板等等。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/useful-prompt/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://wai-imyen.github.io/centos-8-lamp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -327,13 +174,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | I'm Yen">
+      <meta itemprop="name" content="CentOS 8 架設 LAMP | I'm Yen">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/centos-8-lamp/" class="post-title-link" itemprop="url">CentOS 8 架設 LAMP</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          CentOS 8 架設 LAMP
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -355,8 +202,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>僅作為個人紀錄用，不保證持續更新</strong></p>
+    <div class="post-body" itemprop="articleBody"><p><strong>僅作為個人紀錄用，不保證持續更新</strong></p>
 <h2 id="安裝-Apache"><a href="#安裝-Apache" class="headerlink" title="安裝 Apache"></a>安裝 Apache</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum -y install httpd</span><br></pre></td></tr></table></figure>
 
 <h2 id="加入-EPEL-套件庫"><a href="#加入-EPEL-套件庫" class="headerlink" title="加入  EPEL 套件庫"></a>加入  EPEL 套件庫</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum -y install epel-release</span><br><span class="line"><span class="built_in">sudo</span> rpm -Uvhhttp://rpms.famillecollet.com/enterprise/remi-release-8.rpm</span><br></pre></td></tr></table></figure>
@@ -398,7 +244,6 @@
 <h2 id="關閉SELINUX，避免產生權限問題"><a href="#關閉SELINUX，避免產生權限問題" class="headerlink" title="關閉SELINUX，避免產生權限問題"></a>關閉SELINUX，避免產生權限問題</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> setenforce 0  <span class="comment"># 暫時性設定</span></span><br><span class="line"><span class="built_in">sudo</span> vi /etc/selinux/config <span class="comment"># 永久性設定 =&gt; 修改 SELINUX = disabled</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="設定檔案權限"><a href="#設定檔案權限" class="headerlink" title="設定檔案權限"></a>設定檔案權限</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> usermod -a -G apache root <span class="comment"># 加入root帳號到apache群組</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> -R root:apache /var/www</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 2775 /var/www</span><br><span class="line">find /var/www -<span class="built_in">type</span> d -<span class="built_in">exec</span> <span class="built_in">sudo</span> <span class="built_in">chmod</span> 2775 &#123;&#125; \;</span><br><span class="line">find /var/www -<span class="built_in">type</span> f -<span class="built_in">exec</span> <span class="built_in">sudo</span> <span class="built_in">chmod</span> 0664 &#123;&#125; \;</span><br></pre></td></tr></table></figure>
-      
     </div>
 
     
@@ -406,218 +251,30 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/%E7%B6%B2%E7%AB%99%E6%9E%B6%E8%A8%AD/" rel="tag"># 網站架設</a>
+              <a href="/tags/LAMP/" rel="tag"># LAMP</a>
+              <a href="/tags/CentOS/" rel="tag"># CentOS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/robots-txt/" rel="prev" title="robots.txt 設定">
+                  <i class="fa fa-angle-left"></i> robots.txt 設定
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/useful-prompt/" rel="next" title="實用 Prompt">
+                  實用 Prompt <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wai-imyen.github.io/robots-txt/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yen Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="I'm Yen">
-      <meta itemprop="description" content="@wai-imyen">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | I'm Yen">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/robots-txt/" class="post-title-link" itemprop="url">robots.txt 設定</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2020-04-30 12:00:00" itemprop="dateCreated datePublished" datetime="2020-04-30T12:00:00+08:00">2020-04-30</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>僅作為個人紀錄用，不保證持續更新</strong></p>
-<p>架設網站時時常需要建置一個測試站來測試，但我們又希望測試站上的資料不要被搜尋引擎搜尋到，這時可以利用設置 robots.txt 檔案來阻擋搜尋引擎爬取！</p>
-<h2 id="設置流程"><a href="#設置流程" class="headerlink" title="設置流程"></a>設置流程</h2><ol>
-<li><p>創建一個 robots.txt 的檔案，命名方式必須為小寫字母 (命名不正確則無效)</p>
-</li>
-<li><p>設置 robots.txt 檔案內容</p>
-</li>
-<li><p>將 robots.txt 檔案，放置在網站根目錄裡，直接到 <a target="_blank" rel="noopener" href="http://yourdomain.com/robots.txt">http://yourdomain.com/robots.txt</a> 看看是否正確上傳檔案</p>
-</li>
-</ol>
-<h2 id="基本語法介紹"><a href="#基本語法介紹" class="headerlink" title="基本語法介紹"></a>基本語法介紹</h2><ul>
-<li>User-agent: 定義搜尋引擎</li>
-<li>Disallow: 指定不想被檢索的目錄或檔案</li>
-<li>Allow : 指定可被檢索的目錄或檔案</li>
-</ul>
-<h2 id="常用設定"><a href="#常用設定" class="headerlink" title="常用設定"></a>常用設定</h2><p>以下介紹幾種常用的設定方法</p>
-<h3 id="允許搜尋引擎爬取所有網站內容"><a href="#允許搜尋引擎爬取所有網站內容" class="headerlink" title="允許搜尋引擎爬取所有網站內容"></a>允許搜尋引擎爬取所有網站內容</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Disallow:</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="禁止搜尋引擎爬取所有網站內容"><a href="#禁止搜尋引擎爬取所有網站內容" class="headerlink" title="禁止搜尋引擎爬取所有網站內容"></a>禁止搜尋引擎爬取所有網站內容</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Disallow: /</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="禁止搜尋引擎爬取指定檔案"><a href="#禁止搜尋引擎爬取指定檔案" class="headerlink" title="禁止搜尋引擎爬取指定檔案"></a>禁止搜尋引擎爬取指定檔案</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Disallow: /test.php</span><br><span class="line">Disallow: /contact.php</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<p>最後，如果想要確認自己的 robots.txt 語法是否正確的話，可使用 Google Search Console 工具來做測試，</p>
-<hr>
-<p>參考： <a target="_blank" rel="noopener" href="https://support.google.com/webmasters/answer/6062598?hl=zh-Hant">https://support.google.com/webmasters/answer/6062598?hl=zh-Hant</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wai-imyen.github.io/aws-ses-email-setting/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yen Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="I'm Yen">
-      <meta itemprop="description" content="@wai-imyen">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | I'm Yen">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/aws-ses-email-setting/" class="post-title-link" itemprop="url">AWS 網站架設教學：SES 發信設定</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2020-04-25 12:00:00" itemprop="dateCreated datePublished" datetime="2020-04-25T12:00:00+08:00">2020-04-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>僅作為個人紀錄用，不保證持續更新</strong></p>
-<p>登入你的AWS帳號進到主控台，並選擇 Simple Email Service，開始以下的設定：</p>
-<h2 id="一、驗證網域"><a href="#一、驗證網域" class="headerlink" title="一、驗證網域"></a>一、驗證網域</h2><ol>
-<li><p>點選左邊選單的「Domains」選項，再按「Vefify a New Domain」來新增一組你的網域<br><img src="https://i.imgur.com/i850ovf.png" alt="ses-發信設定"></p>
-</li>
-<li><p>在 Domain 欄位填入你的網域，並點選「Verify This Domain」送出<br><img src="https://i.imgur.com/lVKFrWn.png" alt="ses-發信設定"></p>
-</li>
-<li><p>此時你會到以下畫面，這邊需要你去新增設定DNS的TXT記錄來驗證網域，Domain Verification Record下方的TXT記錄即為你所需設定的資料<br><img src="https://i.imgur.com/QztaeYH.png" alt="ses-發信設定"></p>
-</li>
-<li><p>回到SES介面，你會看到已新增的網域，若是TXT記錄設定失敗或尚未生效，則會顯示「pending verification」的狀態，若顯示為「verified」便完成了網域驗證的步驟<br><img src="https://i.imgur.com/LbRZXIr.png" alt="ses-發信設定"></p>
-</li>
-</ol>
-<h2 id="二、驗證信箱"><a href="#二、驗證信箱" class="headerlink" title="二、驗證信箱"></a>二、驗證信箱</h2><ol>
-<li><p>點選左邊選單的「Email Addresses」選項，再按「Vefify a New Email Address」來新增信箱<br><img src="https://i.imgur.com/wwK2Ba3.png" alt="ses-發信設定"></p>
-</li>
-<li><p>在 Email Address 欄位填入你的網域，並點選「Verify This Email Address」送出<br><img src="https://i.imgur.com/qx31e1Q.png" alt="ses-發信設定"><br><img src="https://i.imgur.com/56U2QDT.png" alt="ses-發信設定"></p>
-</li>
-<li><p>接著到登入你的信箱，你會收到一封AWS SES發來的信箱驗證信</p>
-</li>
-<li><p>點選信件中的驗證網址，即可成功驗證信箱<br><img src="https://i.imgur.com/Xo8yRmE.png" alt="ses-發信設定"></p>
-</li>
-<li><p>回到SES介面，你會看到剛剛新增的信箱驗證狀態更新為「verified」，此時已完成信箱驗證的步驟<br><img src="https://i.imgur.com/UFz8Bi8.png" alt="ses-發信設定"></p>
-</li>
-</ol>
-<h2 id="三、建立-SMTP-Credentials"><a href="#三、建立-SMTP-Credentials" class="headerlink" title="三、建立 SMTP Credentials"></a>三、建立 SMTP Credentials</h2><ol>
-<li><p>點選左邊選單的「SMTP settings」選項，再按「Create My SMTP Credentials」新增一組SMTP登入資料<br><img src="https://i.imgur.com/fETmWQQ.png" alt="ses-發信設定"></p>
-</li>
-<li><p>這邊會自動產出一組IAM 使用者名稱，直接點選「建立」<br><img src="https://i.imgur.com/KKZAVei.png" alt="ses-發信設定"></p>
-</li>
-<li><p>這時會看到新增的SMTP使用者名稱及密碼，我們要使用此組帳密來發信，所以請務必要記下來<br><img src="https://i.imgur.com/zH1urI6.png" alt="ses-發信設定"></p>
-</li>
-<li><p>回到 SMTP settings 介面會看到 SMTP 發信用的 Server Name 及 Port ，再加上剛才記下來SMTP使用者名稱及密碼，即為我們所需用到的發信資料！<br><img src="https://i.imgur.com/7r9lp4Z.png" alt="ses-發信設定"></p>
-</li>
-</ol>
-<h2 id="四、撰寫程式，測試發信"><a href="#四、撰寫程式，測試發信" class="headerlink" title="四、撰寫程式，測試發信"></a>四、撰寫程式，測試發信</h2><ol>
-<li><p>使用你擅長的程式語言來撰寫發信程式</p>
-</li>
-<li><p>發信的設定參數值即為剛剛所建立的 SMTP Credentials資料，資訊輸入正確的SMTP即可成功發信囉！</p>
-</li>
-</ol>
-<p>但要注意以下幾點：</p>
-<p>(1) AWS 預設限制阻擋由內到外的 25 port 流量，所以<b>請使用 587 或 465 port 來發信</b></p>
-<p>(2) 若必須要使用 25 port 來發信，則需另外向AWS提出申請，請參閱 如何從 EC2 實例取消端口 25 上的限制</p>
-<p>(3) 未向AWS提出轉正式模式時，皆在沙盒模式中，僅有被驗證的信箱可拿來發信及收信，<b>要解除沙盒模式的話需另填寫表單提出申請轉正式模式</b></p>
-<p>若是使用AWS主機的話不妨試試使用SES來發信！使用EC2的主機還有每月 62,000 封的免費額度</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 

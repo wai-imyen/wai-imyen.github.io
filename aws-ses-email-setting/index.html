@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wai-imyen.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="僅作為個人紀錄用，不保證持續更新 登入你的AWS帳號進到主控台，並選擇 Simple Email Service，開始以下的設定： 一、驗證網域 點選左邊選單的「Domains」選項，再按「Vefify a New Domain」來新增一組你的網域  在 Domain 欄位填入你的網域，並點選「Verify This Domain」送出  此時你會到以下畫面，這邊需要你去新增設定DNS的TXT記錄">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS 網站架設教學：SES 發信設定">
+<meta property="og:url" content="https://wai-imyen.github.io/aws-ses-email-setting/index.html">
+<meta property="og:site_name" content="I&#39;m Yen">
+<meta property="og:description" content="僅作為個人紀錄用，不保證持續更新 登入你的AWS帳號進到主控台，並選擇 Simple Email Service，開始以下的設定： 一、驗證網域 點選左邊選單的「Domains」選項，再按「Vefify a New Domain」來新增一組你的網域  在 Domain 欄位填入你的網域，並點選「Verify This Domain」送出  此時你會到以下畫面，這邊需要你去新增設定DNS的TXT記錄">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/i850ovf.png">
+<meta property="og:image" content="https://i.imgur.com/lVKFrWn.png">
+<meta property="og:image" content="https://i.imgur.com/QztaeYH.png">
+<meta property="og:image" content="https://i.imgur.com/LbRZXIr.png">
+<meta property="og:image" content="https://i.imgur.com/wwK2Ba3.png">
+<meta property="og:image" content="https://i.imgur.com/qx31e1Q.png">
+<meta property="og:image" content="https://i.imgur.com/56U2QDT.png">
+<meta property="og:image" content="https://i.imgur.com/Xo8yRmE.png">
+<meta property="og:image" content="https://i.imgur.com/UFz8Bi8.png">
+<meta property="og:image" content="https://i.imgur.com/fETmWQQ.png">
+<meta property="og:image" content="https://i.imgur.com/KKZAVei.png">
+<meta property="og:image" content="https://i.imgur.com/zH1urI6.png">
+<meta property="og:image" content="https://i.imgur.com/7r9lp4Z.png">
+<meta property="article:published_time" content="2020-04-25T04:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-25T04:00:00.000Z">
+<meta property="article:author" content="Yen Chen">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="SES">
+<meta property="article:tag" content="網站架設">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/i850ovf.png">
+
+
+<link rel="canonical" href="https://wai-imyen.github.io/aws-ses-email-setting/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://wai-imyen.github.io/aws-ses-email-setting/","path":"/aws-ses-email-setting/","title":"AWS 網站架設教學：SES 發信設定"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>AWS 網站架設教學：SES 發信設定 | I'm Yen</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">I'm Yen</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">想到什麼寫什麼 🏝️</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%A9%97%E8%AD%89%E7%B6%B2%E5%9F%9F"><span class="nav-number">1.</span> <span class="nav-text">一、驗證網域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%A9%97%E8%AD%89%E4%BF%A1%E7%AE%B1"><span class="nav-number">2.</span> <span class="nav-text">二、驗證信箱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%BB%BA%E7%AB%8B-SMTP-Credentials"><span class="nav-number">3.</span> <span class="nav-text">三、建立 SMTP Credentials</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%92%B0%E5%AF%AB%E7%A8%8B%E5%BC%8F%EF%BC%8C%E6%B8%AC%E8%A9%A6%E7%99%BC%E4%BF%A1"><span class="nav-number">4.</span> <span class="nav-text">四、撰寫程式，測試發信</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yen Chen</p>
+  <div class="site-description" itemprop="description">@wai-imyen</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">標籤</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wai-imyen" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wai-imyen" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wai-imyen@gmail.com" title="E-Mail → mailto:wai-imyen@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://wai-imyen.github.io/aws-ses-email-setting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yen Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Yen">
+      <meta itemprop="description" content="@wai-imyen">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="AWS 網站架設教學：SES 發信設定 | I'm Yen">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AWS 網站架設教學：SES 發信設定
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2020-04-25 12:00:00" itemprop="dateCreated datePublished" datetime="2020-04-25T12:00:00+08:00">2020-04-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><strong>僅作為個人紀錄用，不保證持續更新</strong></p>
+<p>登入你的AWS帳號進到主控台，並選擇 Simple Email Service，開始以下的設定：</p>
+<h2 id="一、驗證網域"><a href="#一、驗證網域" class="headerlink" title="一、驗證網域"></a>一、驗證網域</h2><ol>
+<li><p>點選左邊選單的「Domains」選項，再按「Vefify a New Domain」來新增一組你的網域<br><img src="https://i.imgur.com/i850ovf.png" alt="ses-發信設定"></p>
+</li>
+<li><p>在 Domain 欄位填入你的網域，並點選「Verify This Domain」送出<br><img src="https://i.imgur.com/lVKFrWn.png" alt="ses-發信設定"></p>
+</li>
+<li><p>此時你會到以下畫面，這邊需要你去新增設定DNS的TXT記錄來驗證網域，Domain Verification Record下方的TXT記錄即為你所需設定的資料<br><img src="https://i.imgur.com/QztaeYH.png" alt="ses-發信設定"></p>
+</li>
+<li><p>回到SES介面，你會看到已新增的網域，若是TXT記錄設定失敗或尚未生效，則會顯示「pending verification」的狀態，若顯示為「verified」便完成了網域驗證的步驟<br><img src="https://i.imgur.com/LbRZXIr.png" alt="ses-發信設定"></p>
+</li>
+</ol>
+<h2 id="二、驗證信箱"><a href="#二、驗證信箱" class="headerlink" title="二、驗證信箱"></a>二、驗證信箱</h2><ol>
+<li><p>點選左邊選單的「Email Addresses」選項，再按「Vefify a New Email Address」來新增信箱<br><img src="https://i.imgur.com/wwK2Ba3.png" alt="ses-發信設定"></p>
+</li>
+<li><p>在 Email Address 欄位填入你的網域，並點選「Verify This Email Address」送出<br><img src="https://i.imgur.com/qx31e1Q.png" alt="ses-發信設定"><br><img src="https://i.imgur.com/56U2QDT.png" alt="ses-發信設定"></p>
+</li>
+<li><p>接著到登入你的信箱，你會收到一封AWS SES發來的信箱驗證信</p>
+</li>
+<li><p>點選信件中的驗證網址，即可成功驗證信箱<br><img src="https://i.imgur.com/Xo8yRmE.png" alt="ses-發信設定"></p>
+</li>
+<li><p>回到SES介面，你會看到剛剛新增的信箱驗證狀態更新為「verified」，此時已完成信箱驗證的步驟<br><img src="https://i.imgur.com/UFz8Bi8.png" alt="ses-發信設定"></p>
+</li>
+</ol>
+<h2 id="三、建立-SMTP-Credentials"><a href="#三、建立-SMTP-Credentials" class="headerlink" title="三、建立 SMTP Credentials"></a>三、建立 SMTP Credentials</h2><ol>
+<li><p>點選左邊選單的「SMTP settings」選項，再按「Create My SMTP Credentials」新增一組SMTP登入資料<br><img src="https://i.imgur.com/fETmWQQ.png" alt="ses-發信設定"></p>
+</li>
+<li><p>這邊會自動產出一組IAM 使用者名稱，直接點選「建立」<br><img src="https://i.imgur.com/KKZAVei.png" alt="ses-發信設定"></p>
+</li>
+<li><p>這時會看到新增的SMTP使用者名稱及密碼，我們要使用此組帳密來發信，所以請務必要記下來<br><img src="https://i.imgur.com/zH1urI6.png" alt="ses-發信設定"></p>
+</li>
+<li><p>回到 SMTP settings 介面會看到 SMTP 發信用的 Server Name 及 Port ，再加上剛才記下來SMTP使用者名稱及密碼，即為我們所需用到的發信資料！<br><img src="https://i.imgur.com/7r9lp4Z.png" alt="ses-發信設定"></p>
+</li>
+</ol>
+<h2 id="四、撰寫程式，測試發信"><a href="#四、撰寫程式，測試發信" class="headerlink" title="四、撰寫程式，測試發信"></a>四、撰寫程式，測試發信</h2><ol>
+<li><p>使用你擅長的程式語言來撰寫發信程式</p>
+</li>
+<li><p>發信的設定參數值即為剛剛所建立的 SMTP Credentials資料，資訊輸入正確的SMTP即可成功發信囉！</p>
+</li>
+</ol>
+<p>但要注意以下幾點：</p>
+<p>(1) AWS 預設限制阻擋由內到外的 25 port 流量，所以<b>請使用 587 或 465 port 來發信</b></p>
+<p>(2) 若必須要使用 25 port 來發信，則需另外向AWS提出申請，請參閱 如何從 EC2 實例取消端口 25 上的限制</p>
+<p>(3) 未向AWS提出轉正式模式時，皆在沙盒模式中，僅有被驗證的信箱可拿來發信及收信，<b>要解除沙盒模式的話需另填寫表單提出申請轉正式模式</b></p>
+<p>若是使用AWS主機的話不妨試試使用SES來發信！使用EC2的主機還有每月 62,000 封的免費額度</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AWS/" rel="tag"># AWS</a>
+              <a href="/tags/SES/" rel="tag"># SES</a>
+              <a href="/tags/%E7%B6%B2%E7%AB%99%E6%9E%B6%E8%A8%AD/" rel="tag"># 網站架設</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/robots-txt/" rel="next" title="robots.txt 設定">
+                  robots.txt 設定 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yen Chen</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
