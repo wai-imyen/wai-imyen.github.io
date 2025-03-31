@@ -20,43 +20,36 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wai-imyen.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="僅作為個人紀錄用，不保證持續更新 登入你的AWS帳號進到主控台，並選擇 Simple Email Service，開始以下的設定： 一、驗證網域 點選左邊選單的「Domains」選項，再按「Vefify a New Domain」來新增一組你的網域">
+    <meta name="description" content="僅作為個人紀錄用，不保證持續更新 一、設定 SendGrid，並申請帳號 至搜尋框輸入”sengrid email”，並點選該項目">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AWS 網站架設教學：SES 發信設定">
-<meta property="og:url" content="https://wai-imyen.github.io/posts/aws-ses-email-setting/index.html">
+<meta property="og:title" content="GCP SendGrid 信箱設定">
+<meta property="og:url" content="https://wai-imyen.github.io/posts/gcp-sendgrid-email-setting/index.html">
 <meta property="og:site_name" content="I&#39;m Yen">
-<meta property="og:description" content="僅作為個人紀錄用，不保證持續更新 登入你的AWS帳號進到主控台，並選擇 Simple Email Service，開始以下的設定： 一、驗證網域 點選左邊選單的「Domains」選項，再按「Vefify a New Domain」來新增一組你的網域">
+<meta property="og:description" content="僅作為個人紀錄用，不保證持續更新 一、設定 SendGrid，並申請帳號 至搜尋框輸入”sengrid email”，並點選該項目">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/i850ovf.png">
-<meta property="og:image" content="https://i.imgur.com/lVKFrWn.png">
-<meta property="og:image" content="https://i.imgur.com/QztaeYH.png">
-<meta property="og:image" content="https://i.imgur.com/LbRZXIr.png">
-<meta property="og:image" content="https://i.imgur.com/wwK2Ba3.png">
-<meta property="og:image" content="https://i.imgur.com/qx31e1Q.png">
-<meta property="og:image" content="https://i.imgur.com/56U2QDT.png">
-<meta property="og:image" content="https://i.imgur.com/Xo8yRmE.png">
-<meta property="og:image" content="https://i.imgur.com/UFz8Bi8.png">
-<meta property="og:image" content="https://i.imgur.com/fETmWQQ.png">
-<meta property="og:image" content="https://i.imgur.com/KKZAVei.png">
-<meta property="og:image" content="https://i.imgur.com/zH1urI6.png">
-<meta property="og:image" content="https://i.imgur.com/7r9lp4Z.png">
-<meta property="article:published_time" content="2020-04-25T04:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-25T04:00:00.000Z">
+<meta property="og:image" content="https://i.imgur.com/zo2zpgq.png">
+<meta property="og:image" content="https://i.imgur.com/S6H79Vb.png">
+<meta property="og:image" content="https://i.imgur.com/CIGX5EX.png">
+<meta property="og:image" content="https://i.imgur.com/d0StDX4.png">
+<meta property="og:image" content="https://i.imgur.com/oKtoLhd.png">
+<meta property="og:image" content="https://i.imgur.com/eqkuj9g.png">
+<meta property="og:image" content="https://i.imgur.com/gbriLYT.png">
+<meta property="article:published_time" content="2019-11-22T04:00:00.000Z">
+<meta property="article:modified_time" content="2019-11-22T04:00:00.000Z">
 <meta property="article:author" content="Yen Chen">
-<meta property="article:tag" content="AWS">
-<meta property="article:tag" content="SES">
-<meta property="article:tag" content="網站架設">
+<meta property="article:tag" content="GCP">
+<meta property="article:tag" content="SendGrid">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/i850ovf.png">
+<meta name="twitter:image" content="https://i.imgur.com/zo2zpgq.png">
 
 
-<link rel="canonical" href="https://wai-imyen.github.io/posts/aws-ses-email-setting/">
+<link rel="canonical" href="https://wai-imyen.github.io/posts/gcp-sendgrid-email-setting/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://wai-imyen.github.io/posts/aws-ses-email-setting/","path":"/posts/aws-ses-email-setting/","title":"AWS 網站架設教學：SES 發信設定"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://wai-imyen.github.io/posts/gcp-sendgrid-email-setting/","path":"/posts/gcp-sendgrid-email-setting/","title":"GCP SendGrid 信箱設定"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>AWS 網站架設教學：SES 發信設定 | I'm Yen</title>
+<title>GCP SendGrid 信箱設定 | I'm Yen</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LCM8637ED"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-4LCM8637ED","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -156,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%A9%97%E8%AD%89%E7%B6%B2%E5%9F%9F"><span class="nav-number">1.</span> <span class="nav-text">一、驗證網域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%A9%97%E8%AD%89%E4%BF%A1%E7%AE%B1"><span class="nav-number">2.</span> <span class="nav-text">二、驗證信箱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%BB%BA%E7%AB%8B-SMTP-Credentials"><span class="nav-number">3.</span> <span class="nav-text">三、建立 SMTP Credentials</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%92%B0%E5%AF%AB%E7%A8%8B%E5%BC%8F%EF%BC%8C%E6%B8%AC%E8%A9%A6%E7%99%BC%E4%BF%A1"><span class="nav-number">4.</span> <span class="nav-text">四、撰寫程式，測試發信</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%A8%AD%E5%AE%9A-SendGrid%EF%BC%8C%E4%B8%A6%E7%94%B3%E8%AB%8B%E5%B8%B3%E8%99%9F"><span class="nav-number">1.</span> <span class="nav-text">一、設定 SendGrid，並申請帳號</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%BB%E6%A9%9F-Postfix-%E8%A8%AD%E5%AE%9A"><span class="nav-number">2.</span> <span class="nav-text">二、主機 Postfix 設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%B8%AC%E8%A9%A6%E7%99%BC%E4%BF%A1"><span class="nav-number">3.</span> <span class="nav-text">三、測試發信</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -217,7 +210,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://wai-imyen.github.io/posts/aws-ses-email-setting/">
+    <link itemprop="mainEntityOfPage" href="https://wai-imyen.github.io/posts/gcp-sendgrid-email-setting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar/qb-head.jpg">
@@ -230,12 +223,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="AWS 網站架設教學：SES 發信設定 | I'm Yen">
+      <meta itemprop="name" content="GCP SendGrid 信箱設定 | I'm Yen">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          AWS 網站架設教學：SES 發信設定
+          GCP SendGrid 信箱設定
         </h1>
 
         <div class="post-meta-container">
@@ -246,7 +239,7 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2020-04-25 12:00:00" itemprop="dateCreated datePublished" datetime="2020-04-25T12:00:00+08:00">2020-04-25</time>
+      <time title="創建時間：2019-11-22 12:00:00" itemprop="dateCreated datePublished" datetime="2019-11-22T12:00:00+08:00">2019-11-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -268,53 +261,81 @@
     
     
     <div class="post-body" itemprop="articleBody"><p><strong>僅作為個人紀錄用，不保證持續更新</strong></p>
-<p>登入你的AWS帳號進到主控台，並選擇 Simple Email Service，開始以下的設定：</p>
-<h2 id="一、驗證網域"><a href="#一、驗證網域" class="headerlink" title="一、驗證網域"></a>一、驗證網域</h2><ol>
-<li>點選左邊選單的「Domains」選項，再按「Vefify a New Domain」來新增一組你的網域<br><img src="https://i.imgur.com/i850ovf.png" alt="ses-發信設定"></li>
+<h2 id="一、設定-SendGrid，並申請帳號"><a href="#一、設定-SendGrid，並申請帳號" class="headerlink" title="一、設定 SendGrid，並申請帳號"></a>一、設定 SendGrid，並申請帳號</h2><ol>
+<li>至搜尋框輸入”sengrid email”，並點選該項目</li>
 </ol>
+<p><img src="https://i.imgur.com/zo2zpgq.png" alt="GCP-SendGrid"></p>
 <span id="more"></span>
 
 <ol start="2">
-<li><p>在 Domain 欄位填入你的網域，並點選「Verify This Domain」送出<br><img src="https://i.imgur.com/lVKFrWn.png" alt="ses-發信設定"></p>
-</li>
-<li><p>此時你會到以下畫面，這邊需要你去新增設定DNS的TXT記錄來驗證網域，Domain Verification Record下方的TXT記錄即為你所需設定的資料<br><img src="https://i.imgur.com/QztaeYH.png" alt="ses-發信設定"></p>
-</li>
-<li><p>回到SES介面，你會看到已新增的網域，若是TXT記錄設定失敗或尚未生效，則會顯示「pending verification」的狀態，若顯示為「verified」便完成了網域驗證的步驟<br><img src="https://i.imgur.com/LbRZXIr.png" alt="ses-發信設定"></p>
+<li>進入「SendGrid Email API」頁面後，直接點選「開始使用免費方案」</li>
+</ol>
+<p><img src="https://i.imgur.com/S6H79Vb.png" alt="GCP-SendGrid"></p>
+<ol start="3">
+<li>接著選擇使用的方案，這裡使用Free免費方案，每月最多可免費寄送12000封信件</li>
+</ol>
+<p><img src="https://i.imgur.com/CIGX5EX.png" alt="GCP-SendGrid"></p>
+<ol start="4">
+<li>再來要註冊 SendGrid帳號，點選註冊</li>
+</ol>
+<p><img src="https://i.imgur.com/d0StDX4.png" alt="GCP-SendGrid"></p>
+<ol start="5">
+<li>開始註冊帳號，這裡填寫的Username及Password會當作網站發信用的帳密</li>
+</ol>
+<p><img src="https://i.imgur.com/oKtoLhd.png" alt="GCP-SendGrid"></p>
+<ol start="6">
+<li>送出後回到後台，即可看已訂閱「Free」方案</li>
+</ol>
+<p><img src="https://i.imgur.com/eqkuj9g.png" alt="GCP-SendGrid"></p>
+<h2 id="二、主機-Postfix-設定"><a href="#二、主機-Postfix-設定" class="headerlink" title="二、主機 Postfix 設定"></a>二、主機 Postfix 設定</h2><ol>
+<li>以 SSH 連線進入主機</li>
+<li>輸入以下指令進行安裝套件及設定</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">umask</span> 077</span><br><span class="line"><span class="built_in">sudo</span> yum install cyrus-sasl-plain cyrus-sasl-md5 mailx -y</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"></span><br><span class="line">3. 編輯 /etc/postfix/main.cf 文件，至文件最底部，貼上以下設定值，並儲存</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"><span class="built_in">sudo</span> vi /etc/postfix/main.cf</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">貼上以下設定值：</span><br><span class="line">relayhost = [smtp.sendgrid.net]:2525</span><br><span class="line">smtp_tls_security_level = encrypt</span><br><span class="line">smtp_sasl_auth_enable = yes</span><br><span class="line">smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd</span><br><span class="line">header_size_limit = 4096000</span><br><span class="line">smtp_sasl_security_options = noanonymous</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/gbriLYT.png" alt="GCP-SendGrid"></p>
+<ol>
+<li>輸入以下指令，建立發信的帳號密碼檔，USERNAME填入剛註冊的帳號(注意是username，不是信箱)，PASSWORD填入註冊密碼</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">echo</span> [smtp.sendgrid.net]:2525 USERNAME:PASSWORD &gt;&gt; /etc/postfix/sasl_passwd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>輸入以下指令，將上面建立好的檔案，轉成db格式</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> postmap /etc/postfix/sasl_passwd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>輸入以下指令，確認是否有產生.db的檔案</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">ls</span> -l /etc/postfix/sasl_passwd.db</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>確認建立好後刪除先前的帳號密碼檔</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> rm-rf /etc/postfix/sasl_passwd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>輸入指令，重啟 postfix，若無錯誤訊息則表示設置成功</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> postfix reload</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、測試發信"><a href="#三、測試發信" class="headerlink" title="三、測試發信"></a>三、測試發信</h2><ol>
+<li>輸入下面指令測試發信，<a href="mailto:&#121;&#x6f;&#x75;&#x72;&#101;&#109;&#97;&#105;&#108;&#64;&#101;&#120;&#x61;&#109;&#112;&#108;&#x65;&#46;&#x63;&#111;&#x6d;">youremail@example.com</a> 填入你的信箱，若有收到主旨為”Test-Email”，內容為”Message”的信件，即表示設定成功！</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;Message.&#x27;</span> | mail -s Test-Email youremail@example.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>也可使用程式來發信，設定資訊如下：<ul>
+<li>SMTP</li>
+<li>Host: <a target="_blank" rel="noopener" href="http://smtp.sendgrid.net/">smtp.sendgrid.net</a></li>
+<li>Port: 2525</li>
+<li>Username: 註冊帳號</li>
+<li>Password: 註冊密碼</li>
+</ul>
 </li>
 </ol>
-<h2 id="二、驗證信箱"><a href="#二、驗證信箱" class="headerlink" title="二、驗證信箱"></a>二、驗證信箱</h2><ol>
-<li><p>點選左邊選單的「Email Addresses」選項，再按「Vefify a New Email Address」來新增信箱<br><img src="https://i.imgur.com/wwK2Ba3.png" alt="ses-發信設定"></p>
-</li>
-<li><p>在 Email Address 欄位填入你的網域，並點選「Verify This Email Address」送出<br><img src="https://i.imgur.com/qx31e1Q.png" alt="ses-發信設定"><br><img src="https://i.imgur.com/56U2QDT.png" alt="ses-發信設定"></p>
-</li>
-<li><p>接著到登入你的信箱，你會收到一封AWS SES發來的信箱驗證信</p>
-</li>
-<li><p>點選信件中的驗證網址，即可成功驗證信箱<br><img src="https://i.imgur.com/Xo8yRmE.png" alt="ses-發信設定"></p>
-</li>
-<li><p>回到SES介面，你會看到剛剛新增的信箱驗證狀態更新為「verified」，此時已完成信箱驗證的步驟<br><img src="https://i.imgur.com/UFz8Bi8.png" alt="ses-發信設定"></p>
-</li>
-</ol>
-<h2 id="三、建立-SMTP-Credentials"><a href="#三、建立-SMTP-Credentials" class="headerlink" title="三、建立 SMTP Credentials"></a>三、建立 SMTP Credentials</h2><ol>
-<li><p>點選左邊選單的「SMTP settings」選項，再按「Create My SMTP Credentials」新增一組SMTP登入資料<br><img src="https://i.imgur.com/fETmWQQ.png" alt="ses-發信設定"></p>
-</li>
-<li><p>這邊會自動產出一組IAM 使用者名稱，直接點選「建立」<br><img src="https://i.imgur.com/KKZAVei.png" alt="ses-發信設定"></p>
-</li>
-<li><p>這時會看到新增的SMTP使用者名稱及密碼，我們要使用此組帳密來發信，所以請務必要記下來<br><img src="https://i.imgur.com/zH1urI6.png" alt="ses-發信設定"></p>
-</li>
-<li><p>回到 SMTP settings 介面會看到 SMTP 發信用的 Server Name 及 Port ，再加上剛才記下來SMTP使用者名稱及密碼，即為我們所需用到的發信資料！<br><img src="https://i.imgur.com/7r9lp4Z.png" alt="ses-發信設定"></p>
-</li>
-</ol>
-<h2 id="四、撰寫程式，測試發信"><a href="#四、撰寫程式，測試發信" class="headerlink" title="四、撰寫程式，測試發信"></a>四、撰寫程式，測試發信</h2><ol>
-<li><p>使用你擅長的程式語言來撰寫發信程式</p>
-</li>
-<li><p>發信的設定參數值即為剛剛所建立的 SMTP Credentials資料，資訊輸入正確的SMTP即可成功發信囉！</p>
-</li>
-</ol>
-<p>但要注意以下幾點：</p>
-<p>(1) AWS 預設限制阻擋由內到外的 25 port 流量，所以<b>請使用 587 或 465 port 來發信</b></p>
-<p>(2) 若必須要使用 25 port 來發信，則需另外向AWS提出申請，請參閱 如何從 EC2 實例取消端口 25 上的限制</p>
-<p>(3) 未向AWS提出轉正式模式時，皆在沙盒模式中，僅有被驗證的信箱可拿來發信及收信，<b>要解除沙盒模式的話需另填寫表單提出申請轉正式模式</b></p>
-<p>若是使用AWS主機的話不妨試試使用SES來發信！使用EC2的主機還有每月 62,000 封的免費額度</p>
 
     </div>
 
@@ -324,22 +345,21 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/AWS/" rel="tag"># AWS</a>
-              <a href="/tags/SES/" rel="tag"># SES</a>
-              <a href="/tags/%E7%B6%B2%E7%AB%99%E6%9E%B6%E8%A8%AD/" rel="tag"># 網站架設</a>
+              <a href="/tags/GCP/" rel="tag"># GCP</a>
+              <a href="/tags/SendGrid/" rel="tag"># SendGrid</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/gcp-sendgrid-email-setting/" rel="prev" title="GCP SendGrid 信箱設定">
-                  <i class="fa fa-angle-left"></i> GCP SendGrid 信箱設定
+                <a href="/posts/gcp-vm-website-setting/" rel="prev" title="GCP 架站 - 建立 VM 執行個體 + 設定固定 IP">
+                  <i class="fa fa-angle-left"></i> GCP 架站 - 建立 VM 執行個體 + 設定固定 IP
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/robots-txt-setting/" rel="next" title="robots.txt 設定">
-                  robots.txt 設定 <i class="fa fa-angle-right"></i>
+                <a href="/posts/aws-ses-email-setting/" rel="next" title="AWS 網站架設教學：SES 發信設定">
+                  AWS 網站架設教學：SES 發信設定 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

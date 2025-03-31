@@ -47,6 +47,15 @@
   </url>
   
   <url>
+    <loc>https://wai-imyen.github.io/posts/windows-xampp-upgrade-php-7/</loc>
+    
+    <lastmod>2020-05-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wai-imyen.github.io/posts/robots-txt-setting/</loc>
     
     <lastmod>2020-04-30</lastmod>
@@ -59,6 +68,24 @@
     <loc>https://wai-imyen.github.io/posts/aws-ses-email-setting/</loc>
     
     <lastmod>2020-04-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/posts/gcp-sendgrid-email-setting/</loc>
+    
+    <lastmod>2019-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/posts/gcp-vm-website-setting/</loc>
+    
+    <lastmod>2019-11-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -110,6 +137,41 @@
   
   <url>
     <loc>https://wai-imyen.github.io/tags/PHP/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/GCP/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/SendGrid/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/Elastic-IP/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/Xampp/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/Windows/</loc>
     <lastmod>2025-03-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

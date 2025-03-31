@@ -20,28 +20,36 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wai-imyen.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="@wai-imyen">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分類">
-<meta property="og:url" content="https://wai-imyen.github.io/categories/index.html">
+    <meta name="description" content="僅作為個人紀錄用，不保證持續更新 建立 VM 執行個體點選「建立執行個體」   填寫該執行個體名稱 根據所在國家及地區選擇適合的區域 根據網站的所需的規格選擇機器類型，可選擇配好的機器，也可自訂規格，右上角可看到月付的預估值 配置開機磁碟，點選變更，可選擇該 VM 的作業系統及磁碟類型(永久&#x2F;SSD)，並配置所需的磁碟空間 設定防火牆，勾選「允許 HTTP 流量」，若是有網站有 SSL，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GCP 架站 - 建立 VM 執行個體 + 設定固定 IP">
+<meta property="og:url" content="https://wai-imyen.github.io/posts/gcp-vm-website-setting/index.html">
 <meta property="og:site_name" content="I&#39;m Yen">
-<meta property="og:description" content="@wai-imyen">
+<meta property="og:description" content="僅作為個人紀錄用，不保證持續更新 建立 VM 執行個體點選「建立執行個體」   填寫該執行個體名稱 根據所在國家及地區選擇適合的區域 根據網站的所需的規格選擇機器類型，可選擇配好的機器，也可自訂規格，右上角可看到月付的預估值 配置開機磁碟，點選變更，可選擇該 VM 的作業系統及磁碟類型(永久&#x2F;SSD)，並配置所需的磁碟空間 設定防火牆，勾選「允許 HTTP 流量」，若是有網站有 SSL，">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2025-03-31T18:23:31.000Z">
-<meta property="article:modified_time" content="2025-03-31T18:25:08.048Z">
+<meta property="og:image" content="https://i.imgur.com/jtjYjk5.png">
+<meta property="og:image" content="https://i.imgur.com/ax9fP4i.png">
+<meta property="og:image" content="https://i.imgur.com/OgfJE90.png">
+<meta property="og:image" content="https://i.imgur.com/PepcA3X.png">
+<meta property="og:image" content="https://i.imgur.com/E2rsZyc.png">
+<meta property="og:image" content="https://i.imgur.com/ve85nqY.png">
+<meta property="og:image" content="https://i.imgur.com/3hqaggK.png">
+<meta property="article:published_time" content="2019-11-22T04:00:00.000Z">
+<meta property="article:modified_time" content="2019-11-22T04:00:00.000Z">
 <meta property="article:author" content="Yen Chen">
-<meta property="article:tag" content="軟體開發, 後端, 技術分享">
+<meta property="article:tag" content="GCP">
+<meta property="article:tag" content="Elastic IP">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/jtjYjk5.png">
 
 
-<link rel="canonical" href="https://wai-imyen.github.io/categories/">
+<link rel="canonical" href="https://wai-imyen.github.io/posts/gcp-vm-website-setting/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-TW","comments":true,"permalink":"https://wai-imyen.github.io/categories/index.html","path":"categories/index.html","title":"分類"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://wai-imyen.github.io/posts/gcp-vm-website-setting/","path":"/posts/gcp-vm-website-setting/","title":"GCP 架站 - 建立 VM 執行個體 + 設定固定 IP"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>分類 | I'm Yen
-</title>
+<title>GCP 架站 - 建立 VM 執行個體 + 設定固定 IP | I'm Yen</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LCM8637ED"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-4LCM8637ED","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -128,7 +136,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目錄
@@ -141,6 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-VM-%E5%9F%B7%E8%A1%8C%E5%80%8B%E9%AB%94"><span class="nav-number">1.</span> <span class="nav-text">建立 VM 執行個體</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E5%9B%BA%E5%AE%9A-IP"><span class="nav-number">2.</span> <span class="nav-text">設定固定 IP</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -190,42 +199,129 @@
 
     </div>
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
 
 
-    
-    
-    
-    <div class="post-block" lang="zh-TW"><header class="post-header">
+  
 
-<h1 class="post-title" itemprop="name headline">分類
-</h1>
 
-<div class="post-meta-container">
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://wai-imyen.github.io/posts/gcp-vm-website-setting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/qb-head.jpg">
+      <meta itemprop="name" content="Yen Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Yen">
+      <meta itemprop="description" content="@wai-imyen">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="GCP 架站 - 建立 VM 執行個體 + 設定固定 IP | I'm Yen">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GCP 架站 - 建立 VM 執行個體 + 設定固定 IP
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2019-11-22 12:00:00" itemprop="dateCreated datePublished" datetime="2019-11-22T12:00:00+08:00">2019-11-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%B6%B2%E7%AB%99%E6%9E%B6%E8%A8%AD/" itemprop="url" rel="index"><span itemprop="name">網站架設</span></a>
+        </span>
+    </span>
+
+  
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      
-      <div class="post-body"><div class="category-all-page">
-  <div class="category-all-title">
-    目前共有 3 個分類
-  </div>
-  <div class="category-all">
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%87%89%E7%94%A8%E5%B7%A5%E5%85%B7/">應用工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC/">程式開發</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B6%B2%E7%AB%99%E6%9E%B6%E8%A8%AD/">網站架設</a><span class="category-list-count">6</span></li></ul>
-  </div>
-</div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><strong>僅作為個人紀錄用，不保證持續更新</strong></p>
+<h2 id="建立-VM-執行個體"><a href="#建立-VM-執行個體" class="headerlink" title="建立 VM 執行個體"></a>建立 VM 執行個體</h2><p>點選「建立執行個體」</p>
+<p><img src="https://i.imgur.com/jtjYjk5.png" alt="GCP-VM"></p>
+<ol>
+<li>填寫該執行個體名稱</li>
+<li>根據所在國家及地區選擇適合的區域</li>
+<li>根據網站的所需的規格選擇機器類型，可選擇配好的機器，也可自訂規格，右上角可看到月付的預估值</li>
+<li>配置開機磁碟，點選變更，可選擇該 VM 的作業系統及磁碟類型(永久&#x2F;SSD)，並配置所需的磁碟空間</li>
+<li>設定防火牆，勾選「允許 HTTP 流量」，若是有網站有 SSL，也一併勾選「允許 HTTPS 流量」</li>
+<li>接著即可按建立，並等待系統建置</li>
+</ol>
+<span id="more"></span>
 
-      </div>
-      
-      
-      
+<p><img src="https://i.imgur.com/ax9fP4i.png" alt="GCP-VM"></p>
+<p><img src="https://i.imgur.com/OgfJE90.png" alt="GCP-VM"></p>
+<ol>
+<li>建立完成後，即可在介面看到已建立的 VM</li>
+</ol>
+<p>這時可看到預先配置好的臨時 IP，若是將 VM 重新啟動，IP 再次改變，因為還需要將臨時外部 IP 位址改為靜態IP位址，供網站 DNS 使用</p>
+<p><img src="https://i.imgur.com/PepcA3X.png" alt="GCP-VM"></p>
+<h2 id="設定固定-IP"><a href="#設定固定-IP" class="headerlink" title="設定固定 IP"></a>設定固定 IP</h2><ol>
+<li>至 “ VPC 網路-&gt;外部 IP 位址” 的地方，會看到剛 VM 建立用的 IP，其類型為「臨時」，將類型由「臨時」改為「靜態」</li>
+<li>此時會跳出「預約新的靜態 IP 位址」，填入可識別的名稱確認送出</li>
+</ol>
+<p><img src="https://i.imgur.com/E2rsZyc.png" alt="GCP-VM"></p>
+<p><img src="https://i.imgur.com/ve85nqY.png" alt="GCP-VM"></p>
+<ol start="3">
+<li>回到外部IP位址頁面，即可看到 IP 類型已成功改為「靜態」囉</li>
+<li>之後即可設定網站DNS，將A紀錄指向這組IP，即可以網域瀏覽該主機架好的網站</li>
+</ol>
+<p><img src="https://i.imgur.com/3hqaggK.png" alt="GCP-VM"></p>
+
     </div>
 
     
     
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/GCP/" rel="tag"># GCP</a>
+              <a href="/tags/Elastic-IP/" rel="tag"># Elastic IP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/gcp-sendgrid-email-setting/" rel="next" title="GCP SendGrid 信箱設定">
+                  GCP SendGrid 信箱設定 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
 
 
 </div>

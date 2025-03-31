@@ -3,8 +3,11 @@ https://wai-imyen.github.io/tags/index.html
 https://wai-imyen.github.io/categories/index.html
 https://wai-imyen.github.io/posts/useful-prompt/
 https://wai-imyen.github.io/posts/build-centos-8-lamp/
+https://wai-imyen.github.io/posts/windows-xampp-upgrade-php-7/
 https://wai-imyen.github.io/posts/robots-txt-setting/
 https://wai-imyen.github.io/posts/aws-ses-email-setting/
+https://wai-imyen.github.io/posts/gcp-sendgrid-email-setting/
+https://wai-imyen.github.io/posts/gcp-vm-website-setting/
 https://wai-imyen.github.io/
 https://wai-imyen.github.io/tags/AWS/
 https://wai-imyen.github.io/tags/SES/
@@ -12,6 +15,11 @@ https://wai-imyen.github.io/tags/%E7%B6%B2%E7%AB%99%E6%9E%B6%E8%A8%AD/
 https://wai-imyen.github.io/tags/Linux/
 https://wai-imyen.github.io/tags/CentOS/
 https://wai-imyen.github.io/tags/PHP/
+https://wai-imyen.github.io/tags/GCP/
+https://wai-imyen.github.io/tags/SendGrid/
+https://wai-imyen.github.io/tags/Elastic-IP/
+https://wai-imyen.github.io/tags/Xampp/
+https://wai-imyen.github.io/tags/Windows/
 https://wai-imyen.github.io/tags/AI/
 https://wai-imyen.github.io/tags/MCP-Server/
 https://wai-imyen.github.io/tags/Python/
