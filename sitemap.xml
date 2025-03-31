@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://wai-imyen.github.io/posts/tamagotchi-mcp-server/</loc>
+    
+    <lastmod>2025-03-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/posts/useful-prompt/</loc>
+    
+    <lastmod>2025-02-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/posts/build-centos-8-lamp/</loc>
+    
+    <lastmod>2020-12-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/posts/robots-txt-setting/</loc>
+    
+    <lastmod>2020-04-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/posts/aws-ses-email-setting/</loc>
+    
+    <lastmod>2020-04-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  <url>
+    <loc>https://wai-imyen.github.io/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/AWS/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/SES/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/%E7%B6%B2%E7%AB%99%E6%9E%B6%E8%A8%AD/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/LAMP/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/CentOS/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/MCP-Server/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/FastAPI/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/Python/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/Prompt/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/AI/</loc>
+    <lastmod>2025-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+</urlset>

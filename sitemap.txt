@@ -1,0 +1,16 @@
+https://wai-imyen.github.io/posts/tamagotchi-mcp-server/
+https://wai-imyen.github.io/posts/useful-prompt/
+https://wai-imyen.github.io/posts/build-centos-8-lamp/
+https://wai-imyen.github.io/posts/robots-txt-setting/
+https://wai-imyen.github.io/posts/aws-ses-email-setting/
+https://wai-imyen.github.io/
+https://wai-imyen.github.io/tags/AWS/
+https://wai-imyen.github.io/tags/SES/
+https://wai-imyen.github.io/tags/%E7%B6%B2%E7%AB%99%E6%9E%B6%E8%A8%AD/
+https://wai-imyen.github.io/tags/LAMP/
+https://wai-imyen.github.io/tags/CentOS/
+https://wai-imyen.github.io/tags/MCP-Server/
+https://wai-imyen.github.io/tags/FastAPI/
+https://wai-imyen.github.io/tags/Python/
+https://wai-imyen.github.io/tags/Prompt/
+https://wai-imyen.github.io/tags/AI/
