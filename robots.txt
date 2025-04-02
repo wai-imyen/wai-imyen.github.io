@@ -1,16 +1,3 @@
 User-agent: *
-Allow: /
-Allow: /archives/
-Allow: /categories/
-Allow: /tags/
-Allow: /posts/
-Disallow: /vendors/
-Disallow: /fonts/
-Disallow: /vendors/
-Disallow: /fancybox/
-Disallow: /css/
-Disallow: /fonts/
-Disallow: /images/
-Disallow: /js/
-Disallow: /lib/
+Disallow:
 Sitemap: https://wai-imyen.github.io/sitemap.xml
