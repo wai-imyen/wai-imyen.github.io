@@ -21,20 +21,20 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wai-imyen.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="僅作為個人紀錄用，不保證持續更新 安裝 Apache1sudo yum -y install httpd  加入  EPEL 套件庫12sudo yum -y install epel-releasesudo rpm -Uvhhttp:&#x2F;&#x2F;rpms.famillecollet.com&#x2F;enterprise&#x2F;remi-release-8.rpm">
+    <meta name="description" content="僅作為個人紀錄使用   安裝 Apache1sudo yum -y install httpd  加入  EPEL 套件庫12sudo yum -y install epel-releasesudo rpm -Uvhhttp:&#x2F;&#x2F;rpms.famillecollet.com&#x2F;enterprise&#x2F;remi-release-8.rpm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 8 架設 LAMP">
 <meta property="og:url" content="https://wai-imyen.github.io/posts/build-centos-8-lamp/index.html">
 <meta property="og:site_name" content="I&#39;m Yen">
-<meta property="og:description" content="僅作為個人紀錄用，不保證持續更新 安裝 Apache1sudo yum -y install httpd  加入  EPEL 套件庫12sudo yum -y install epel-releasesudo rpm -Uvhhttp:&#x2F;&#x2F;rpms.famillecollet.com&#x2F;enterprise&#x2F;remi-release-8.rpm">
+<meta property="og:description" content="僅作為個人紀錄使用   安裝 Apache1sudo yum -y install httpd  加入  EPEL 套件庫12sudo yum -y install epel-releasesudo rpm -Uvhhttp:&#x2F;&#x2F;rpms.famillecollet.com&#x2F;enterprise&#x2F;remi-release-8.rpm">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-12-30T04:00:00.000Z">
 <meta property="article:modified_time" content="2020-12-30T04:00:00.000Z">
 <meta property="article:author" content="Yen Chen">
 <meta property="article:tag" content="網站架設">
-<meta property="article:tag" content="PHP">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="PHP">
 <meta name="twitter:card" content="summary">
 
 
@@ -264,6 +264,21 @@
     </span>
 
   
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>666</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>2 分鐘</span>
+    </span>
 </div>
 
         </div>
@@ -272,7 +287,9 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p><strong>僅作為個人紀錄用，不保證持續更新</strong></p>
+    <div class="post-body" itemprop="articleBody"><div class="note info"><p><strong>僅作為個人紀錄使用</strong></p>
+</div>
+
 <h2 id="安裝-Apache"><a href="#安裝-Apache" class="headerlink" title="安裝 Apache"></a>安裝 Apache</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum -y install httpd</span><br></pre></td></tr></table></figure>
 
 <h2 id="加入-EPEL-套件庫"><a href="#加入-EPEL-套件庫" class="headerlink" title="加入  EPEL 套件庫"></a>加入  EPEL 套件庫</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum -y install epel-release</span><br><span class="line"><span class="built_in">sudo</span> rpm -Uvhhttp://rpms.famillecollet.com/enterprise/remi-release-8.rpm</span><br></pre></td></tr></table></figure>
@@ -325,9 +342,9 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E7%B6%B2%E7%AB%99%E6%9E%B6%E8%A8%AD/" rel="tag"># 網站架設</a>
-              <a href="/tags/PHP/" rel="tag"># PHP</a>
               <a href="/tags/Linux/" rel="tag"># Linux</a>
               <a href="/tags/CentOS/" rel="tag"># CentOS</a>
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
           </div>
 
         
