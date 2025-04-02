@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"wai-imyen.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wai-imyen.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="MCP 是什麼？MCP 是一種開放協定，讓 AI 透過標準化方式與外部工具互動。本文介紹我如何使用 Python、FastAPI 實作一個 MCP Server，透過一個簡化的電子雞養成遊戲作為案例。">
 <meta property="og:type" content="article">
@@ -69,6 +69,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -92,7 +95,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
         </a>
@@ -143,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E8%88%87%E7%9B%AE%E6%A8%99"><span class="nav-number">1.</span> <span class="nav-text">背景與目標</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%A6%E4%BD%9C%E9%81%8E%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">實作過程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%92%B0%E5%A2%83%E8%A8%AD%E7%BD%AE%E8%88%87%E6%9E%B6%E6%A7%8B"><span class="nav-number">2.1.</span> <span class="nav-text">環境設置與架構</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%92%B0%E5%A2%83%E8%A8%AD%E7%BD%AE"><span class="nav-number">2.1.1.</span> <span class="nav-text">環境設置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FastAPI-%E9%81%8A%E6%88%B2%E5%8A%9F%E8%83%BD%E5%AF%A6%E4%BD%9C"><span class="nav-number">2.2.</span> <span class="nav-text">FastAPI 遊戲功能實作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MCP-Server-%E7%9A%84%E5%AF%A6%E4%BD%9C"><span class="nav-number">2.3.</span> <span class="nav-text">MCP Server 的實作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7-Tool"><span class="nav-number">2.3.1.</span> <span class="nav-text">工具 (Tool)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B3%87%E6%BA%90-Resource"><span class="nav-number">2.3.2.</span> <span class="nav-text">資源 (Resource)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Claude-Desktop"><span class="nav-number">2.4.</span> <span class="nav-text">配置 Claude Desktop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%A6%E4%BD%9C%E6%88%90%E6%9E%9C"><span class="nav-number">3.</span> <span class="nav-text">實作成果</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E8%88%87%E7%9B%AE%E6%A8%99"><span class="nav-text">背景與目標</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%A6%E4%BD%9C%E9%81%8E%E7%A8%8B"><span class="nav-text">實作過程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%92%B0%E5%A2%83%E8%A8%AD%E7%BD%AE%E8%88%87%E6%9E%B6%E6%A7%8B"><span class="nav-text">環境設置與架構</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%92%B0%E5%A2%83%E8%A8%AD%E7%BD%AE"><span class="nav-text">環境設置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FastAPI-%E9%81%8A%E6%88%B2%E5%8A%9F%E8%83%BD%E5%AF%A6%E4%BD%9C"><span class="nav-text">FastAPI 遊戲功能實作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MCP-Server-%E7%9A%84%E5%AF%A6%E4%BD%9C"><span class="nav-text">MCP Server 的實作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7-Tool"><span class="nav-text">工具 (Tool)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B3%87%E6%BA%90-Resource"><span class="nav-text">資源 (Resource)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Claude-Desktop"><span class="nav-text">配置 Claude Desktop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%A6%E4%BD%9C%E6%88%90%E6%9E%9C"><span class="nav-text">實作成果</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -153,26 +156,6 @@
       src="/images/avatar/qb-head.jpg">
   <p class="site-author-name" itemprop="name">Yen Chen</p>
   <div class="site-description" itemprop="description">@wai-imyen</div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">9</span>
-          <span class="site-state-item-name">文章</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分類</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">16</span>
-        <span class="site-state-item-name">標籤</span></a>
-      </div>
-  </nav>
 </div>
   <div class="links-of-author animated">
       <span class="links-of-author-item">

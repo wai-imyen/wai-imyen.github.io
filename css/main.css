@@ -1407,7 +1407,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #5208be;
+    background: #5b1aff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1668,28 +1668,6 @@ pre code {
   color: #999;
   font-size: 0.8125em;
   margin-top: 0;
-}
-.site-state {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  line-height: 1.4;
-}
-.site-state-item {
-  padding: 0 15px;
-}
-.site-state-item a {
-  border-bottom: 0;
-  display: block;
-}
-.site-state-item-count {
-  display: block;
-  font-size: 1em;
-  font-weight: 600;
-}
-.site-state-item-name {
-  color: #999;
-  font-size: 0.8125em;
 }
 .sidebar .sidebar-button:not(:first-child) {
   margin-top: 15px;
