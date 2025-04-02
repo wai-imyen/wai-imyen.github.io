@@ -91,6 +91,15 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://wai-imyen.github.io/posts/ssl-setting-apache-centos-7/</loc>
+    
+    <lastmod>2019-09-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   <url>
     <loc>https://wai-imyen.github.io/</loc>
@@ -99,6 +108,27 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/AWS/</loc>
+    <lastmod>2025-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/SES/</loc>
+    <lastmod>2025-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/%E7%B6%B2%E7%AB%99%E6%9E%B6%E8%A8%AD/</loc>
+    <lastmod>2025-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://wai-imyen.github.io/tags/GCP/</loc>
@@ -115,7 +145,7 @@
   </url>
   
   <url>
-    <loc>https://wai-imyen.github.io/tags/Linux/</loc>
+    <loc>https://wai-imyen.github.io/tags/SSL/</loc>
     <lastmod>2025-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -129,14 +159,21 @@
   </url>
   
   <url>
-    <loc>https://wai-imyen.github.io/tags/PHP/</loc>
+    <loc>https://wai-imyen.github.io/tags/Apache/</loc>
     <lastmod>2025-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://wai-imyen.github.io/tags/%E7%B6%B2%E7%AB%99%E6%9E%B6%E8%A8%AD/</loc>
+    <loc>https://wai-imyen.github.io/tags/Linux/</loc>
+    <lastmod>2025-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/PHP/</loc>
     <lastmod>2025-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -158,20 +195,6 @@
   
   <url>
     <loc>https://wai-imyen.github.io/tags/Elastic-IP/</loc>
-    <lastmod>2025-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wai-imyen.github.io/tags/AWS/</loc>
-    <lastmod>2025-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wai-imyen.github.io/tags/SES/</loc>
     <lastmod>2025-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -208,14 +231,14 @@
   </url>
   
   <url>
-    <loc>https://wai-imyen.github.io/categories/%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC/</loc>
+    <loc>https://wai-imyen.github.io/categories/%E6%87%89%E7%94%A8%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2025-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://wai-imyen.github.io/categories/%E6%87%89%E7%94%A8%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://wai-imyen.github.io/categories/%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC/</loc>
     <lastmod>2025-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

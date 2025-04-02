@@ -21,36 +21,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wai-imyen.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="僅作為個人紀錄使用   一、設定 SendGrid，並申請帳號 至搜尋框輸入”sengrid email”，並點選該項目">
+    <meta name="description" content="僅作為個人紀錄使用   1. 取得 SSL 憑證檔案申請 SSL 憑證後，通常會獲得以下檔案：    certificate.crt – 伺服器憑證（主要憑證）   private.key – 憑證私鑰（用於驗證伺服器身份，請妥善保管）   ca_bundle.crt – 中繼憑證（根憑證與中介憑證的組合，部分 CA 可能不提供）   如果你的 SSL 憑證發行商提供的是 .pem 格式，可能需要">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GCP SendGrid 信箱設定">
-<meta property="og:url" content="https://wai-imyen.github.io/posts/gcp-sendgrid-email-setting/index.html">
+<meta property="og:title" content="SSL 安全憑證設定 (Apache + CentOS 7）">
+<meta property="og:url" content="https://wai-imyen.github.io/posts/ssl-setting-apache-centos-7/index.html">
 <meta property="og:site_name" content="I&#39;m Yen">
-<meta property="og:description" content="僅作為個人紀錄使用   一、設定 SendGrid，並申請帳號 至搜尋框輸入”sengrid email”，並點選該項目">
+<meta property="og:description" content="僅作為個人紀錄使用   1. 取得 SSL 憑證檔案申請 SSL 憑證後，通常會獲得以下檔案：    certificate.crt – 伺服器憑證（主要憑證）   private.key – 憑證私鑰（用於驗證伺服器身份，請妥善保管）   ca_bundle.crt – 中繼憑證（根憑證與中介憑證的組合，部分 CA 可能不提供）   如果你的 SSL 憑證發行商提供的是 .pem 格式，可能需要">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/zo2zpgq.png">
-<meta property="og:image" content="https://i.imgur.com/S6H79Vb.png">
-<meta property="og:image" content="https://i.imgur.com/CIGX5EX.png">
-<meta property="og:image" content="https://i.imgur.com/d0StDX4.png">
-<meta property="og:image" content="https://i.imgur.com/oKtoLhd.png">
-<meta property="og:image" content="https://i.imgur.com/eqkuj9g.png">
-<meta property="og:image" content="https://i.imgur.com/gbriLYT.png">
-<meta property="article:published_time" content="2019-11-22T04:00:00.000Z">
-<meta property="article:modified_time" content="2019-11-22T04:00:00.000Z">
+<meta property="article:published_time" content="2019-09-19T04:00:00.000Z">
+<meta property="article:modified_time" content="2019-09-19T04:00:00.000Z">
 <meta property="article:author" content="Yen Chen">
-<meta property="article:tag" content="GCP">
-<meta property="article:tag" content="SendGrid">
+<meta property="article:tag" content="SSL">
+<meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Apache">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/zo2zpgq.png">
 
 
-<link rel="canonical" href="https://wai-imyen.github.io/posts/gcp-sendgrid-email-setting/">
+<link rel="canonical" href="https://wai-imyen.github.io/posts/ssl-setting-apache-centos-7/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://wai-imyen.github.io/posts/gcp-sendgrid-email-setting/","path":"/posts/gcp-sendgrid-email-setting/","title":"GCP SendGrid 信箱設定"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://wai-imyen.github.io/posts/ssl-setting-apache-centos-7/","path":"/posts/ssl-setting-apache-centos-7/","title":"SSL 安全憑證設定 (Apache + CentOS 7）"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>GCP SendGrid 信箱設定 | I'm Yen</title>
+<title>SSL 安全憑證設定 (Apache + CentOS 7） | I'm Yen</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LCM8637ED"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-4LCM8637ED","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -150,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%A8%AD%E5%AE%9A-SendGrid%EF%BC%8C%E4%B8%A6%E7%94%B3%E8%AB%8B%E5%B8%B3%E8%99%9F"><span class="nav-number">1.</span> <span class="nav-text">一、設定 SendGrid，並申請帳號</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%BB%E6%A9%9F-Postfix-%E8%A8%AD%E5%AE%9A"><span class="nav-number">2.</span> <span class="nav-text">二、主機 Postfix 設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%B8%AC%E8%A9%A6%E7%99%BC%E4%BF%A1"><span class="nav-number">3.</span> <span class="nav-text">三、測試發信</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%96%E5%BE%97-SSL-%E6%86%91%E8%AD%89%E6%AA%94%E6%A1%88"><span class="nav-number">1.</span> <span class="nav-text">1. 取得 SSL 憑證檔案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%B0%87%E6%86%91%E8%AD%89%E6%AA%94%E6%A1%88%E6%94%BE%E7%BD%AE%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E9%8C%84"><span class="nav-number">2.</span> <span class="nav-text">2. 將憑證檔案放置到指定目錄</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A0%90%E8%A8%AD%E6%86%91%E8%AD%89%E5%AD%98%E6%94%BE%E7%9B%AE%E9%8C%84%EF%BC%88CentOS-7%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">預設憑證存放目錄（CentOS 7）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E9%81%A9%E7%95%B6%E7%9A%84%E6%AC%8A%E9%99%90%EF%BC%88%E7%A7%81%E9%91%B0%E6%87%89%E8%A9%B2%E9%99%90%E5%88%B6%E5%AD%98%E5%8F%96%EF%BC%89"><span class="nav-number"></span> <span class="nav-text">設定適當的權限（私鑰應該限制存取）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%AE%89%E8%A3%9D-Apache-SSL-%E6%A8%A1%E7%B5%84"><span class="nav-number">1.</span> <span class="nav-text">3. 安裝 Apache SSL 模組</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%9F%A5%E6%89%BE-SSL-%E8%A8%AD%E5%AE%9A%E6%AA%94%E6%A1%88%E8%B7%AF%E5%BE%91"><span class="nav-number">2.</span> <span class="nav-text">4. 查找 SSL 設定檔案路徑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E8%A8%AD%E5%AE%9A-SSL-%E6%86%91%E8%AD%89"><span class="nav-number">3.</span> <span class="nav-text">5. 設定 SSL 憑證</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E9%87%8D%E5%95%9F-Apache"><span class="nav-number">3.1.</span> <span class="nav-text">6. 重啟 Apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E6%B8%AC%E8%A9%A6-SSL-%E9%80%A3%E7%B7%9A"><span class="nav-number">3.2.</span> <span class="nav-text">7. 測試 SSL 連線</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -202,17 +195,17 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/build-centos-8-lamp/" rel="bookmark">
+        <time class="popular-posts-time">2020-12-30</time>
+        <br>
+      CentOS 8 架設 LAMP
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/posts/gcp-vm-website-setting/" rel="bookmark">
         <time class="popular-posts-time">2019-11-22</time>
         <br>
       GCP 架站 - 建立 VM 執行個體 + 設定固定 IP
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/posts/aws-ses-email-setting/" rel="bookmark">
-        <time class="popular-posts-time">2020-04-25</time>
-        <br>
-      AWS 網站架設教學：SES 發信設定
       </a>
     </li>
   </ul>
@@ -235,7 +228,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://wai-imyen.github.io/posts/gcp-sendgrid-email-setting/">
+    <link itemprop="mainEntityOfPage" href="https://wai-imyen.github.io/posts/ssl-setting-apache-centos-7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar/qb-head.jpg">
@@ -248,12 +241,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="GCP SendGrid 信箱設定 | I'm Yen">
+      <meta itemprop="name" content="SSL 安全憑證設定 (Apache + CentOS 7） | I'm Yen">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          GCP SendGrid 信箱設定
+          SSL 安全憑證設定 (Apache + CentOS 7）
         </h1>
 
         <div class="post-meta-container">
@@ -264,7 +257,7 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2019-11-22 12:00:00" itemprop="dateCreated datePublished" datetime="2019-11-22T12:00:00+08:00">2019-11-22</time>
+      <time title="創建時間：2019-09-19 12:00:00" itemprop="dateCreated datePublished" datetime="2019-09-19T12:00:00+08:00">2019-09-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -283,7 +276,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">文章字數：</span>
-      <span>498</span>
+      <span>487</span>
     </span>
     <span class="post-meta-item" title="所需閱讀時間">
       <span class="post-meta-item-icon">
@@ -303,81 +296,38 @@
     <div class="post-body" itemprop="articleBody"><div class="note info"><p><strong>僅作為個人紀錄使用</strong></p>
 </div>
 
-<h2 id="一、設定-SendGrid，並申請帳號"><a href="#一、設定-SendGrid，並申請帳號" class="headerlink" title="一、設定 SendGrid，並申請帳號"></a>一、設定 SendGrid，並申請帳號</h2><ol>
-<li>至搜尋框輸入”sengrid email”，並點選該項目</li>
-</ol>
-<p><img src="https://i.imgur.com/zo2zpgq.png" alt="GCP-SendGrid"></p>
+<h2 id="1-取得-SSL-憑證檔案"><a href="#1-取得-SSL-憑證檔案" class="headerlink" title="1. 取得 SSL 憑證檔案"></a>1. 取得 SSL 憑證檔案</h2><p>申請 SSL 憑證後，通常會獲得以下檔案：  </p>
+<ul>
+<li><code>certificate.crt</code> – <strong>伺服器憑證</strong>（主要憑證）  </li>
+<li><code>private.key</code> – <strong>憑證私鑰</strong>（用於驗證伺服器身份，請妥善保管）  </li>
+<li><code>ca_bundle.crt</code> – <strong>中繼憑證</strong>（根憑證與中介憑證的組合，部分 CA 可能不提供）</li>
+</ul>
+<blockquote>
+<p>如果你的 SSL 憑證發行商提供的是 <code>.pem</code> 格式，可能需要轉換或拆分成 <code>.crt</code> 和 <code>.key</code> 以符合 Apache 的需求。  </p>
+</blockquote>
 <span id="more"></span>
 
-<ol start="2">
-<li>進入「SendGrid Email API」頁面後，直接點選「開始使用免費方案」</li>
-</ol>
-<p><img src="https://i.imgur.com/S6H79Vb.png" alt="GCP-SendGrid"></p>
-<ol start="3">
-<li>接著選擇使用的方案，這裡使用Free免費方案，每月最多可免費寄送12000封信件</li>
-</ol>
-<p><img src="https://i.imgur.com/CIGX5EX.png" alt="GCP-SendGrid"></p>
-<ol start="4">
-<li>再來要註冊 SendGrid帳號，點選註冊</li>
-</ol>
-<p><img src="https://i.imgur.com/d0StDX4.png" alt="GCP-SendGrid"></p>
-<ol start="5">
-<li>開始註冊帳號，這裡填寫的Username及Password會當作網站發信用的帳密</li>
-</ol>
-<p><img src="https://i.imgur.com/oKtoLhd.png" alt="GCP-SendGrid"></p>
-<ol start="6">
-<li>送出後回到後台，即可看已訂閱「Free」方案</li>
-</ol>
-<p><img src="https://i.imgur.com/eqkuj9g.png" alt="GCP-SendGrid"></p>
-<h2 id="二、主機-Postfix-設定"><a href="#二、主機-Postfix-設定" class="headerlink" title="二、主機 Postfix 設定"></a>二、主機 Postfix 設定</h2><ol>
-<li>以 SSH 連線進入主機</li>
-<li>輸入以下指令進行安裝套件及設定</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">umask</span> 077</span><br><span class="line"><span class="built_in">sudo</span> yum install cyrus-sasl-plain cyrus-sasl-md5 mailx -y</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"></span><br><span class="line">3. 編輯 /etc/postfix/main.cf 文件，至文件最底部，貼上以下設定值，並儲存</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"><span class="built_in">sudo</span> vi /etc/postfix/main.cf</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-將憑證檔案放置到指定目錄"><a href="#2-將憑證檔案放置到指定目錄" class="headerlink" title="2. 將憑證檔案放置到指定目錄"></a>2. 將憑證檔案放置到指定目錄</h2><h3 id="預設憑證存放目錄（CentOS-7）"><a href="#預設憑證存放目錄（CentOS-7）" class="headerlink" title="預設憑證存放目錄（CentOS 7）"></a>預設憑證存放目錄（CentOS 7）</h3><p>預設路徑 <code>/etc/pki/tls/certs/</code>  </p>
+<p>你也可以使用其他目錄，但請確保 Apache 能夠存取這些檔案。  </p>
+<h1 id="設定適當的權限（私鑰應該限制存取）"><a href="#設定適當的權限（私鑰應該限制存取）" class="headerlink" title="設定適當的權限（私鑰應該限制存取）"></a>設定適當的權限（私鑰應該限制存取）</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 600 /etc/pki/tls/certs/private.key</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">貼上以下設定值：</span><br><span class="line">relayhost = [smtp.sendgrid.net]:2525</span><br><span class="line">smtp_tls_security_level = encrypt</span><br><span class="line">smtp_sasl_auth_enable = yes</span><br><span class="line">smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd</span><br><span class="line">header_size_limit = 4096000</span><br><span class="line">smtp_sasl_security_options = noanonymous</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-安裝-Apache-SSL-模組"><a href="#3-安裝-Apache-SSL-模組" class="headerlink" title="3. 安裝 Apache SSL 模組"></a>3. 安裝 Apache SSL 模組</h2><p>如果你的 Apache 尚未啟用 SSL，請安裝 mod_ssl 模組：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mod_ssl</span><br></pre></td></tr></table></figure>
+<p>安裝後，Apache 會在 &#x2F;etc&#x2F;httpd&#x2F;conf.d&#x2F; 目錄下自動建立 ssl.conf 設定檔。</p>
+<h2 id="4-查找-SSL-設定檔案路徑"><a href="#4-查找-SSL-設定檔案路徑" class="headerlink" title="4. 查找 SSL 設定檔案路徑"></a>4. 查找 SSL 設定檔案路徑</h2><p>可以使用以下指令確認 ssl.conf 的位置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -i -r <span class="string">&quot;SSLCertificateFile&quot;</span> /etc/httpd/</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://i.imgur.com/gbriLYT.png" alt="GCP-SendGrid"></p>
-<ol>
-<li>輸入以下指令，建立發信的帳號密碼檔，USERNAME填入剛註冊的帳號(注意是username，不是信箱)，PASSWORD填入註冊密碼</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">echo</span> [smtp.sendgrid.net]:2525 USERNAME:PASSWORD &gt;&gt; /etc/postfix/sasl_passwd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>預設情況下，設定檔應位於：<br>&#x2F;etc&#x2F;httpd&#x2F;conf.d&#x2F;ssl.conf</p>
+<h2 id="5-設定-SSL-憑證"><a href="#5-設定-SSL-憑證" class="headerlink" title="5. 設定 SSL 憑證"></a>5. 設定 SSL 憑證</h2><p>使用 vi 或 nano 編輯 ssl.conf 設定檔：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/httpd/conf.d/ssl.conf</span><br></pre></td></tr></table></figure>
+<p>找到並修改以下設定（根據你的憑證檔案路徑調整）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:443&gt;</span><br><span class="line">    DocumentRoot <span class="string">&quot;/var/www/html&quot;</span></span><br><span class="line">    ServerName www.example.com:443</span><br><span class="line"></span><br><span class="line">    SSLEngine on</span><br><span class="line">    SSLProtocol all -SSLv2 -SSLv3  <span class="comment"># 禁用過時的 SSLv2 和 SSLv3，防止 POODLE 攻擊</span></span><br><span class="line">    SSLCertificateFile /etc/pki/tls/certs/certificate.crt <span class="comment"># 根據檔案路徑</span></span><br><span class="line">    SSLCertificateKeyFile /etc/pki/tls/certs/private.key <span class="comment"># 根據檔案路徑</span></span><br><span class="line">    SSLCertificateChainFile /etc/pki/tls/certs/ca_bundle.crt <span class="comment"># 根據檔案路徑</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 強制 HTTPS 重導向（可選）</span></span><br><span class="line">    &lt;IfModule mod_rewrite.c&gt;</span><br><span class="line">        RewriteEngine On</span><br><span class="line">        RewriteCond %&#123;HTTPS&#125; off</span><br><span class="line">        RewriteRule ^(.*)$ https://%&#123;HTTP_HOST&#125;/<span class="variable">$1</span> [R=301,L]</span><br><span class="line">    &lt;/IfModule&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意<br>某些 SSL 憑證可能沒有 ca_bundle.crt，如果 SSLCertificateChainFile 缺少或導致錯誤，請註解該行。</p>
+</blockquote>
+<h3 id="6-重啟-Apache"><a href="#6-重啟-Apache" class="headerlink" title="6. 重啟 Apache"></a>6. 重啟 Apache</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart httpd</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>輸入以下指令，將上面建立好的檔案，轉成db格式</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> postmap /etc/postfix/sasl_passwd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>輸入以下指令，確認是否有產生.db的檔案</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">ls</span> -l /etc/postfix/sasl_passwd.db</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>確認建立好後刪除先前的帳號密碼檔</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> rm-rf /etc/postfix/sasl_passwd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>輸入指令，重啟 postfix，若無錯誤訊息則表示設置成功</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> postfix reload</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="三、測試發信"><a href="#三、測試發信" class="headerlink" title="三、測試發信"></a>三、測試發信</h2><ol>
-<li>輸入下面指令測試發信，<a href="mailto:&#x79;&#111;&#x75;&#114;&#x65;&#109;&#97;&#105;&#108;&#64;&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#x6d;">youremail@example.com</a> 填入你的信箱，若有收到主旨為”Test-Email”，內容為”Message”的信件，即表示設定成功！</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;Message.&#x27;</span> | mail -s Test-Email youremail@example.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>也可使用程式來發信，設定資訊如下：<ul>
-<li>SMTP</li>
-<li>Host: <a target="_blank" rel="noopener" href="http://smtp.sendgrid.net/">smtp.sendgrid.net</a></li>
-<li>Port: 2525</li>
-<li>Username: 註冊帳號</li>
-<li>Password: 註冊密碼</li>
-</ul>
-</li>
-</ol>
+<h3 id="7-測試-SSL-連線"><a href="#7-測試-SSL-連線" class="headerlink" title="7. 測試 SSL 連線"></a>7. 測試 SSL 連線</h3><p>前往目標網站看看是否能夠正常連線</p>
 
     </div>
 
@@ -387,21 +337,19 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/GCP/" rel="tag"># GCP</a>
-              <a href="/tags/SendGrid/" rel="tag"># SendGrid</a>
+              <a href="/tags/SSL/" rel="tag"># SSL</a>
+              <a href="/tags/CentOS/" rel="tag"># CentOS</a>
+              <a href="/tags/Apache/" rel="tag"># Apache</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/gcp-vm-website-setting/" rel="prev" title="GCP 架站 - 建立 VM 執行個體 + 設定固定 IP">
-                  <i class="fa fa-angle-left"></i> GCP 架站 - 建立 VM 執行個體 + 設定固定 IP
-                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/aws-ses-email-setting/" rel="next" title="AWS 網站架設教學：SES 發信設定">
-                  AWS 網站架設教學：SES 發信設定 <i class="fa fa-angle-right"></i>
+                <a href="/posts/gcp-vm-website-setting/" rel="next" title="GCP 架站 - 建立 VM 執行個體 + 設定固定 IP">
+                  GCP 架站 - 建立 VM 執行個體 + 設定固定 IP <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
