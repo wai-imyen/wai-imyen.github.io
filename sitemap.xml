@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wai-imyen.github.io/google8f44e1e77a3e8945.html</loc>
-    
-    <lastmod>2025-04-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://wai-imyen.github.io/posts/tamagotchi-mcp-server/</loc>
     
     <lastmod>2025-04-02</lastmod>
@@ -166,13 +157,6 @@
   </url>
   
   <url>
-    <loc>https://wai-imyen.github.io/tags/Elastic-IP/</loc>
-    <lastmod>2025-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://wai-imyen.github.io/tags/Xampp/</loc>
     <lastmod>2025-04-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -181,6 +165,13 @@
   
   <url>
     <loc>https://wai-imyen.github.io/tags/Windows/</loc>
+    <lastmod>2025-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/Elastic-IP/</loc>
     <lastmod>2025-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
