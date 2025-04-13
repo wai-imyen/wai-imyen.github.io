@@ -83,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://wai-imyen.github.io/posts/gcp-vm-website-setting/</loc>
+    <loc>https://wai-imyen.github.io/posts/gcp-sendgrid-email-setting/</loc>
     
     <lastmod>2019-11-22</lastmod>
     
@@ -92,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://wai-imyen.github.io/posts/gcp-sendgrid-email-setting/</loc>
+    <loc>https://wai-imyen.github.io/posts/gcp-vm-website-setting/</loc>
     
     <lastmod>2019-11-22</lastmod>
     
@@ -119,20 +119,6 @@
 
   
   <url>
-    <loc>https://wai-imyen.github.io/tags/GCP/</loc>
-    <lastmod>2025-04-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wai-imyen.github.io/tags/Elastic-IP/</loc>
-    <lastmod>2025-04-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://wai-imyen.github.io/tags/AWS/</loc>
     <lastmod>2025-04-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -148,13 +134,6 @@
   
   <url>
     <loc>https://wai-imyen.github.io/tags/%E7%B6%B2%E7%AB%99%E6%9E%B6%E8%A8%AD/</loc>
-    <lastmod>2025-04-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wai-imyen.github.io/tags/SendGrid/</loc>
     <lastmod>2025-04-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -182,7 +161,14 @@
   </url>
   
   <url>
-    <loc>https://wai-imyen.github.io/tags/Linux/</loc>
+    <loc>https://wai-imyen.github.io/tags/Xampp/</loc>
+    <lastmod>2025-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/Windows/</loc>
     <lastmod>2025-04-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -196,14 +182,28 @@
   </url>
   
   <url>
-    <loc>https://wai-imyen.github.io/tags/Xampp/</loc>
+    <loc>https://wai-imyen.github.io/tags/GCP/</loc>
     <lastmod>2025-04-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://wai-imyen.github.io/tags/Windows/</loc>
+    <loc>https://wai-imyen.github.io/tags/SendGrid/</loc>
+    <lastmod>2025-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/Linux/</loc>
+    <lastmod>2025-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wai-imyen.github.io/tags/Elastic-IP/</loc>
     <lastmod>2025-04-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
