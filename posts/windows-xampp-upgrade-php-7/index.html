@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/letter-y-32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/letter-y-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/letter-y-16.png">
+  <link rel="mask-icon" href="/images/favicon/letter-y-32.png" color="#222">
+  <meta name="google-site-verification" content="11JLRSlxPHgAqf_9V60107y3L1Jt6b0AelwhcZDl90c">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wai-imyen.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="僅作為個人紀錄使用   1. 下載 PHP前往  https:&#x2F;&#x2F;windows.php.net&#x2F;download&#x2F;  下載 PHP 適合電腦位元的 php7 版本 zip 檔，注意需選擇 “Thread Safe” 的版本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xampp 更新 PHP 7 版本（Windows）">
+<meta property="og:url" content="https://wai-imyen.github.io/posts/windows-xampp-upgrade-php-7/index.html">
+<meta property="og:site_name" content="I&#39;m Yen">
+<meta property="og:description" content="僅作為個人紀錄使用   1. 下載 PHP前往  https:&#x2F;&#x2F;windows.php.net&#x2F;download&#x2F;  下載 PHP 適合電腦位元的 php7 版本 zip 檔，注意需選擇 “Thread Safe” 的版本">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/vT0MvPV.png">
+<meta property="og:image" content="https://i.imgur.com/IwbOY2d.png">
+<meta property="og:image" content="https://i.imgur.com/JvX0Hok.png">
+<meta property="article:published_time" content="2020-05-21T04:00:00.000Z">
+<meta property="article:modified_time" content="2020-05-22T04:00:00.000Z">
+<meta property="article:author" content="Yen Chen">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="Xampp">
+<meta property="article:tag" content="Windows">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/vT0MvPV.png">
+
+
+<link rel="canonical" href="https://wai-imyen.github.io/posts/windows-xampp-upgrade-php-7/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://wai-imyen.github.io/posts/windows-xampp-upgrade-php-7/","path":"/posts/windows-xampp-upgrade-php-7/","title":"Xampp 更新 PHP 7 版本（Windows）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Xampp 更新 PHP 7 版本（Windows） | I'm Yen</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LCM8637ED"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-4LCM8637ED","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">I'm Yen</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">想到什麼寫什麼 🏝️</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%8B%E8%BC%89-PHP"><span class="nav-text">1. 下載 PHP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%A7%A3%E5%A3%93%E7%B8%AE-%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8D"><span class="nav-text">2. 解壓縮 &amp; 重新命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BF%AE%E6%94%B9-httpd-xampp-conf"><span class="nav-text">3. 修改 httpd-xampp.conf</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E4%BF%AE%E6%94%B9-php-%E7%89%88%E6%9C%AC"><span class="nav-text">3.1 修改 php 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E4%BF%AE%E6%94%B9%E7%82%BA-php7-module"><span class="nav-text">3.2 修改為 php7_module</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%87%8D%E5%BB%BA-php-ini-%E8%A8%AD%E5%AE%9A%E6%AA%94"><span class="nav-text">4. 重建 php.ini 設定檔</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E8%A4%87%E8%A3%BD-php-ini"><span class="nav-text">4.1 複製 php.ini</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E8%AA%BF%E6%95%B4-php-ini"><span class="nav-text">4.2 調整 php.ini</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%B8%AC%E8%A9%A6"><span class="nav-text">5. 測試</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yen Chen"
+      src="/images/avatar/qb-head.jpg">
+  <p class="site-author-name" itemprop="name">Yen Chen</p>
+  <div class="site-description" itemprop="description">@wai-imyen</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wai-imyen" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wai-imyen" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wai-imyen@gmail.com" title="E-Mail → mailto:wai-imyen@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相關文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/build-centos-8-lamp/" rel="bookmark">
+        <time class="popular-posts-time">2020-12-30</time>
+        <br>
+      CentOS 8 架設 LAMP
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://wai-imyen.github.io/posts/windows-xampp-upgrade-php-7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/qb-head.jpg">
+      <meta itemprop="name" content="Yen Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Yen">
+      <meta itemprop="description" content="@wai-imyen">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Xampp 更新 PHP 7 版本（Windows） | I'm Yen">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Xampp 更新 PHP 7 版本（Windows）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2020-05-21 12:00:00" itemprop="dateCreated datePublished" datetime="2020-05-21T12:00:00+08:00">2020-05-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2020-05-22 12:00:00" itemprop="dateModified" datetime="2020-05-22T12:00:00+08:00">2020-05-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%B6%B2%E7%AB%99%E6%9E%B6%E8%A8%AD/" itemprop="url" rel="index"><span itemprop="name">網站架設</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>424</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>2 分鐘</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div class="note info"><p><strong>僅作為個人紀錄使用</strong></p>
+</div>
+
+<h3 id="1-下載-PHP"><a href="#1-下載-PHP" class="headerlink" title="1. 下載 PHP"></a>1. 下載 PHP</h3><p>前往  <a target="_blank" rel="noopener" href="https://windows.php.net/download/">https://windows.php.net/download/</a> </p>
+<p>下載 PHP 適合電腦位元的 php7 版本 zip 檔，注意需選擇 “Thread Safe” 的版本</p>
+<span id="more"></span>
+
+<p><img src="https://i.imgur.com/vT0MvPV.png" alt="Xampp-PHP"></p>
+<h3 id="2-解壓縮-重新命名"><a href="#2-解壓縮-重新命名" class="headerlink" title="2. 解壓縮 &amp; 重新命名"></a>2. 解壓縮 &amp; 重新命名</h3><p>解壓縮 zip 檔， 並將檔案資料夾命名為 php，將此資料夾放至 xampp 資料夾中，原本存在 xampp 的 php 資料夾則另外命名</p>
+<p><img src="https://i.imgur.com/IwbOY2d.png" alt="Xampp-PHP"></p>
+<h3 id="3-修改-httpd-xampp-conf"><a href="#3-修改-httpd-xampp-conf" class="headerlink" title="3. 修改 httpd-xampp.conf"></a>3. 修改 httpd-xampp.conf</h3><p>至 XAMPP 控制面版，點選 Config 按鈕，開啟 httpd-xampp.conf 檔，並依下列說明修改檔案內容：</p>
+<p><img src="https://i.imgur.com/JvX0Hok.png" alt="Xampp-PHP"></p>
+<h4 id="3-1-修改-php-版本"><a href="#3-1-修改-php-版本" class="headerlink" title="3.1 修改 php 版本"></a>3.1 修改 php 版本</h4><p>找到下列的文字，修改下面黃底的文字內容</p>
+<p>ps. 請確認修改路徑的檔案真實存在，若無此檔案，代表你可能載錯 php 版本囉！</p>
+<p>修改前：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LoadFile &quot;C:/xampp/php/php5ts.dll&quot;</span><br><span class="line">LoadFile &quot;C:/xampp/php/libpq.dll&quot;</span><br><span class="line">LoadModule php5_module &quot;C:/xampp/php/php5apache2_4.dll&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>修改後：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LoadFile &quot;C:/xampp/php/php7ts.dll&quot;</span><br><span class="line">LoadFile &quot;C:/xampp/php/libpq.dll&quot;</span><br><span class="line">LoadModulephp7_module &quot;C:/xampp/php/php7apache2_4.dll&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-修改為-php7-module"><a href="#3-2-修改為-php7-module" class="headerlink" title="3.2 修改為 php7_module"></a>3.2 修改為 php7_module</h4><p>取代 httpd-xampp.conf 下所有 “php5_module” 文字為 “php7_module”</p>
+<h3 id="4-重建-php-ini-設定檔"><a href="#4-重建-php-ini-設定檔" class="headerlink" title="4. 重建 php.ini 設定檔"></a>4. 重建 php.ini 設定檔</h3><p>更新換完 php 版本檔案後，這時要重建 php.ini 設定檔，依循下列步驟：</p>
+<h4 id="4-1-複製-php-ini"><a href="#4-1-複製-php-ini" class="headerlink" title="4.1 複製 php.ini"></a>4.1 複製 php.ini</h4><p>複製 php 資料夾中的 php.ini-development，並重新命名為 php.ini</p>
+<h4 id="4-2-調整-php-ini"><a href="#4-2-調整-php-ini" class="headerlink" title="4.2 調整 php.ini"></a>4.2 調整 php.ini</h4><p>打開 php.ini 檔，並依網站需求開啟相關模組，下面列幾項調整的設定：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 將前面的分號刪除，開啟設定</span><br><span class="line">extension=curl</span><br><span class="line">extension=gd2</span><br><span class="line">extension=mbstring</span><br><span class="line">extension=mysqli</span><br><span class="line">extension=openssl</span><br><span class="line"></span><br><span class="line"># 要指定好載入模組的資料夾，否則網站載模組時會出錯</span><br><span class="line">extension_dir = &quot;ext&quot;</span><br><span class="line"></span><br><span class="line"># 常見設定</span><br><span class="line">max_execution_time = 600</span><br><span class="line">short_open_tag = On</span><br><span class="line">max_input_time = 180</span><br><span class="line">error_reporting=E_ALL &amp; ~E_DEPRECATED &amp; ~E_STRICT</span><br><span class="line">memory_limit = 500M</span><br><span class="line">post_max_size = 500M</span><br><span class="line">upload_max_filesize = 100M</span><br><span class="line">max_file_uploads = 50</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-測試"><a href="#5-測試" class="headerlink" title="5. 測試"></a>5. 測試</h3><p>至 XAMPP 控制面版，重啟 Apache，即可測試看看設定是否成功</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+              <a href="/tags/Xampp/" rel="tag"># Xampp</a>
+              <a href="/tags/Windows/" rel="tag"># Windows</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/robots-txt-setting/" rel="prev" title="robots.txt 設定">
+                  <i class="fa fa-angle-left"></i> robots.txt 設定
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/build-centos-8-lamp/" rel="next" title="CentOS 8 架設 LAMP">
+                  CentOS 8 架設 LAMP <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yen Chen</span>
+  </div>
+<div class="busuanzi-count">
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

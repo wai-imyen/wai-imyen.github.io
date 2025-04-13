@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/letter-y-32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/letter-y-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/letter-y-16.png">
+  <link rel="mask-icon" href="/images/favicon/letter-y-32.png" color="#222">
+  <meta name="google-site-verification" content="11JLRSlxPHgAqf_9V60107y3L1Jt6b0AelwhcZDl90c">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wai-imyen.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="MCP 是什麼？MCP 是一種開放協定，讓 AI 透過標準化方式與外部工具互動。本文介紹我如何使用 Python、FastAPI 實作一個 MCP Server，透過一個簡化的電子雞養成遊戲作為案例。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="實作 MCP Server：以「電子雞養成遊戲」為例">
+<meta property="og:url" content="https://wai-imyen.github.io/posts/tamagotchi-mcp-server/index.html">
+<meta property="og:site_name" content="I&#39;m Yen">
+<meta property="og:description" content="MCP 是什麼？MCP 是一種開放協定，讓 AI 透過標準化方式與外部工具互動。本文介紹我如何使用 Python、FastAPI 實作一個 MCP Server，透過一個簡化的電子雞養成遊戲作為案例。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-03-29T12:27:05.000Z">
+<meta property="article:modified_time" content="2025-04-13T14:59:45.271Z">
+<meta property="article:author" content="Yen Chen">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="MCP Server">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wai-imyen.github.io/posts/tamagotchi-mcp-server/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://wai-imyen.github.io/posts/tamagotchi-mcp-server/","path":"/posts/tamagotchi-mcp-server/","title":"實作 MCP Server：以「電子雞養成遊戲」為例"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>實作 MCP Server：以「電子雞養成遊戲」為例 | I'm Yen</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LCM8637ED"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-4LCM8637ED","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">I'm Yen</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">想到什麼寫什麼 🏝️</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E8%88%87%E7%9B%AE%E6%A8%99"><span class="nav-text">背景與目標</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%A6%E4%BD%9C%E9%81%8E%E7%A8%8B"><span class="nav-text">實作過程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%92%B0%E5%A2%83%E8%A8%AD%E7%BD%AE%E8%88%87%E6%9E%B6%E6%A7%8B"><span class="nav-text">環境設置與架構</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%92%B0%E5%A2%83%E8%A8%AD%E7%BD%AE"><span class="nav-text">環境設置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FastAPI-%E9%81%8A%E6%88%B2%E5%8A%9F%E8%83%BD%E5%AF%A6%E4%BD%9C"><span class="nav-text">FastAPI 遊戲功能實作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MCP-Server-%E7%9A%84%E5%AF%A6%E4%BD%9C"><span class="nav-text">MCP Server 的實作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7-Tool"><span class="nav-text">工具 (Tool)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B3%87%E6%BA%90-Resource"><span class="nav-text">資源 (Resource)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Claude-Desktop"><span class="nav-text">配置 Claude Desktop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%A6%E4%BD%9C%E6%88%90%E6%9E%9C"><span class="nav-text">實作成果</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yen Chen"
+      src="/images/avatar/qb-head.jpg">
+  <p class="site-author-name" itemprop="name">Yen Chen</p>
+  <div class="site-description" itemprop="description">@wai-imyen</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wai-imyen" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wai-imyen" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wai-imyen@gmail.com" title="E-Mail → mailto:wai-imyen@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相關文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/use-f5-tts-generate-character-voice/" rel="bookmark">
+        <time class="popular-posts-time">2025-04-13</time>
+        <br>
+      使用 F5-TTS 生成 AI 角色語音
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/useful-prompt/" rel="bookmark">
+        <time class="popular-posts-time">2025-02-28</time>
+        <br>
+      日常實用 AI Prompt 分享
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://wai-imyen.github.io/posts/tamagotchi-mcp-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/qb-head.jpg">
+      <meta itemprop="name" content="Yen Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Yen">
+      <meta itemprop="description" content="@wai-imyen">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="實作 MCP Server：以「電子雞養成遊戲」為例 | I'm Yen">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          實作 MCP Server：以「電子雞養成遊戲」為例
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2025-03-29 20:27:05" itemprop="dateCreated datePublished" datetime="2025-03-29T20:27:05+08:00">2025-03-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-04-13 22:59:45" itemprop="dateModified" datetime="2025-04-13T22:59:45+08:00">2025-04-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC/" itemprop="url" rel="index"><span itemprop="name">程式開發</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>5 分鐘</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>本文介紹我如何使用 Python、FastAPI 實作一個 MCP Server，透過一個簡化的電子雞養成遊戲作為案例。主要目的是探索和學習 MCP Server 的功能，而非深入開發遊戲本身。因此，遊戲設計保持簡單，僅作為展示 MCP Server 應用的基礎。</p>
+<h2 id="背景與目標"><a href="#背景與目標" class="headerlink" title="背景與目標"></a>背景與目標</h2><p><a target="_blank" rel="noopener" href="https://www.anthropic.com/news/model-context-protocol">MCP 是什麼？</a> MCP 是一種開放協定，讓 AI 透過標準化方式與外部工具互動，存取所需的服務與數據，適合用於構建工具化的服務，透過定義工具（Tools）和資源（Resources）實現與 Client 端的互動。</p>
+<p>本次我選擇以一個虛擬小雞養成遊戲為原型，來實作 MCP Server，旨在熟悉其架構和應用方式。該遊戲靈感源自電子雞（Tamagotchi），包含基本的狀態管理和玩家互動，但僅實現核心功能以支持學習目標。</p>
+<p>本次目標：</p>
+<ul>
+<li>利用 FastAPI 作為後端，開發遊戲所需 API，提供狀態儲存與更新。</li>
+<li>開發遊戲用 MCP Server 存取遊戲所需的服務與數據。</li>
+<li>使用 AI 搭配 MCP Server 提供前端互動介面，達成遊玩效果。</li>
+</ul>
+<h2 id="實作過程"><a href="#實作過程" class="headerlink" title="實作過程"></a>實作過程</h2><h3 id="環境設置與架構"><a href="#環境設置與架構" class="headerlink" title="環境設置與架構"></a>環境設置與架構</h3><p>本次選用 Python 作為開發語言，開始前確保本地已有 Python 3 環境。</p>
+<p>專案分為兩個主要部分：</p>
+<ul>
+<li>tamagotchi.py：FastAPI 後端，負責資料管理和 API 端點。</li>
+<li>server.py：MCP Server，負責作為串接 AI 的命令處理與回應生成。</li>
+</ul>
+<h4 id="環境設置"><a href="#環境設置" class="headerlink" title="環境設置"></a>環境設置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立虛擬環境</span></span><br><span class="line">python3 -m venv tamagotchi-mcp-env</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用虛擬環境</span></span><br><span class="line"><span class="built_in">source</span> tamagotchi-mcp-env/bin/activate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安裝依賴套件</span></span><br><span class="line">pip install fastapi uvicorn requests aiohttp mcp</span><br><span class="line">pip install <span class="string">&quot;mcp[cli]&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="FastAPI-遊戲功能實作"><a href="#FastAPI-遊戲功能實作" class="headerlink" title="FastAPI 遊戲功能實作"></a>FastAPI 遊戲功能實作</h3><p>遊戲設計只加入了基本的養成元素：</p>
+<ul>
+<li>屬性：飢餓、快樂、能量、健康、髒亂。</li>
+<li>時間機制：根據 last_interaction 計算時間變化，增減各項屬性，如若超過 12 小時未互動，健康下降。</li>
+<li>回應：簡單的遊戲化訊息。</li>
+</ul>
+<p>FastAPI 後端負責管理小雞的狀態，並將資料儲存於 <code>tamagotchi.json</code> 文件檔案。</p>
+<p>功能包括：</p>
+<ul>
+<li>狀態初始化：建立初始小雞資料，預設名稱為「小雞」，從蛋階段開始。</li>
+<li>狀態更新：根據時間差計算屬性變化，例如飢餓隨時間增加。</li>
+<li>動作處理：支援基本的玩家動作，如餵食和改名。</li>
+</ul>
+<p>核心程式碼如下（簡化版本）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastapi <span class="keyword">import</span> FastAPI</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">app = FastAPI()</span><br><span class="line">PET_FILE = <span class="string">&quot;pet_state.json&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">init_pet</span>():</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(PET_FILE):</span><br><span class="line">        default_pet = &#123;</span><br><span class="line">            <span class="string">&quot;name&quot;</span>: <span class="string">&quot;小雞&quot;</span>,</span><br><span class="line">            <span class="string">&quot;stage&quot;</span>: <span class="string">&quot;egg&quot;</span>,</span><br><span class="line">            <span class="string">&quot;hunger&quot;</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="string">&quot;happiness&quot;</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="string">&quot;energy&quot;</span>: <span class="number">100</span>,</span><br><span class="line">            <span class="string">&quot;health&quot;</span>: <span class="number">100</span>,</span><br><span class="line">            <span class="string">&quot;mess&quot;</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="string">&quot;age&quot;</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="string">&quot;last_updated&quot;</span>: datetime.now().isoformat(),</span><br><span class="line">            <span class="string">&quot;last_interaction&quot;</span>: datetime.now().isoformat(),</span><br><span class="line">            <span class="string">&quot;last_event&quot;</span>: <span class="string">&quot;蛋正在孵化中...&quot;</span>,</span><br><span class="line">            <span class="string">&quot;runaway&quot;</span>: <span class="literal">False</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(PET_FILE, <span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            json.dump(default_pet, f)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/pet/status&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_pet_status</span>():</span><br><span class="line">    init_pet()</span><br><span class="line">    pet = json.load(<span class="built_in">open</span>(PET_FILE, <span class="string">&quot;r&quot;</span>))</span><br><span class="line">    <span class="comment"># 時間更新邏輯 (以下略)</span></span><br><span class="line">    json.dump(pet, <span class="built_in">open</span>(PET_FILE, <span class="string">&quot;w&quot;</span>))</span><br><span class="line">    <span class="keyword">return</span> pet</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.post(<span class="params"><span class="string">&quot;/pet/update&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">update_pet_status</span>(<span class="params">action: <span class="built_in">dict</span></span>):</span><br><span class="line">    init_pet()</span><br><span class="line">    pet = json.load(<span class="built_in">open</span>(PET_FILE, <span class="string">&quot;r&quot;</span>))</span><br><span class="line">    <span class="comment"># 動作處理邏輯略 (以下略)</span></span><br><span class="line">    json.dump(pet, <span class="built_in">open</span>(PET_FILE, <span class="string">&quot;w&quot;</span>))</span><br><span class="line">    <span class="keyword">return</span> pet</span><br></pre></td></tr></table></figure>
+
+<p>後端啟動指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uvicorn tamagotchi:app --host 0.0.0.0 --port 8000</span><br></pre></td></tr></table></figure>
+
+<h3 id="MCP-Server-的實作"><a href="#MCP-Server-的實作" class="headerlink" title="MCP Server 的實作"></a>MCP Server 的實作</h3><p>MCP Server 是客戶端的互動介面，使用 FastMCP 類定義功能。我實現了以下工具和資源：</p>
+<h4 id="工具-Tool"><a href="#工具-Tool" class="headerlink" title="工具 (Tool)"></a>工具 (Tool)</h4><ul>
+<li>get_pet_status：查詢小雞狀態。</li>
+<li>update_pet_status：處理玩家動作。</li>
+<li>set_pet_name：更改小雞名稱。</li>
+<li>get_game_instructions：提供簡要遊戲說明。</li>
+</ul>
+<h4 id="資源-Resource"><a href="#資源-Resource" class="headerlink" title="資源 (Resource)"></a>資源 (Resource)</h4><ul>
+<li>discovery:&#x2F;&#x2F;info：返回服務資訊和小雞狀態概覽。</li>
+</ul>
+<p>MCP Server 程式碼（server.py）如下（簡化版本）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mcp.server.fastmcp <span class="keyword">import</span> FastMCP</span><br><span class="line"><span class="keyword">import</span> aiohttp</span><br><span class="line"></span><br><span class="line">FASTAPI_BASE_URL = <span class="string">&quot;http://localhost:8000&quot;</span></span><br><span class="line">mcp = FastMCP(<span class="string">&quot;VirtualPetServer&quot;</span>, description=<span class="string">&quot;A virtual chick game&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@mcp.tool()</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">get_pet_status</span>() -&gt; <span class="built_in">dict</span>:</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">with</span> aiohttp.ClientSession() <span class="keyword">as</span> session:</span><br><span class="line">        <span class="keyword">async</span> <span class="keyword">with</span> session.get(<span class="string">f&quot;<span class="subst">&#123;FASTAPI_BASE_URL&#125;</span>/pet/status&quot;</span>) <span class="keyword">as</span> response:</span><br><span class="line">            pet_data = <span class="keyword">await</span> response.json()</span><br><span class="line">            <span class="keyword">return</span> &#123;<span class="string">&quot;message&quot;</span>: <span class="string">f&quot;【<span class="subst">&#123;pet_data[<span class="string">&#x27;name&#x27;</span>]&#125;</span>】\n狀態: ...&quot;</span>, <span class="string">&quot;data&quot;</span>: pet_data&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@mcp.tool()</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">update_pet_status</span>(<span class="params">action: <span class="built_in">str</span>, value: <span class="built_in">int</span> = <span class="number">20</span></span>) -&gt; <span class="built_in">dict</span>:</span><br><span class="line">    payload = &#123;<span class="string">&quot;action&quot;</span>: action, <span class="string">&quot;value&quot;</span>: value&#125;</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">with</span> aiohttp.ClientSession() <span class="keyword">as</span> session:</span><br><span class="line">        <span class="keyword">async</span> <span class="keyword">with</span> session.post(<span class="string">f&quot;<span class="subst">&#123;FASTAPI_BASE_URL&#125;</span>/pet/update&quot;</span>, json=payload) <span class="keyword">as</span> response:</span><br><span class="line">            pet_data = <span class="keyword">await</span> response.json()</span><br><span class="line">            <span class="keyword">return</span> &#123;<span class="string">&quot;message&quot;</span>: <span class="string">f&quot;【行動結果】\n<span class="subst">&#123;pet_data[<span class="string">&#x27;last_event&#x27;</span>]&#125;</span>&quot;</span>, <span class="string">&quot;data&quot;</span>: pet_data&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@mcp.resource(<span class="params"><span class="string">&quot;discovery://info&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">mcp_discovery</span>() -&gt; <span class="built_in">dict</span>:</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">with</span> aiohttp.ClientSession() <span class="keyword">as</span> session:</span><br><span class="line">        <span class="keyword">async</span> <span class="keyword">with</span> session.get(<span class="string">f&quot;<span class="subst">&#123;FASTAPI_BASE_URL&#125;</span>/mcp/discovery&quot;</span>) <span class="keyword">as</span> response:</span><br><span class="line">            base_info = <span class="keyword">await</span> response.json()</span><br><span class="line">        <span class="keyword">async</span> <span class="keyword">with</span> session.get(<span class="string">f&quot;<span class="subst">&#123;FASTAPI_BASE_URL&#125;</span>/pet/status&quot;</span>) <span class="keyword">as</span> status_response:</span><br><span class="line">            pet_data = <span class="keyword">await</span> status_response.json()</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="string">&quot;message&quot;</span>: <span class="string">f&quot;歡迎來到 <span class="subst">&#123;pet_data[<span class="string">&#x27;name&#x27;</span>]&#125;</span> 的世界！\n狀態概覽: ...&quot;</span>,</span><br><span class="line">            <span class="string">&quot;technical_info&quot;</span>: base_info</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    mcp.run()</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="配置-Claude-Desktop"><a href="#配置-Claude-Desktop" class="headerlink" title="配置 Claude Desktop"></a>配置 Claude Desktop</h3><p>為了讓 MCP Server 與 AI 工具（如 Claude Desktop）整合，需要配置於 Claude Desktop 的設定檔中。以下是配置步驟：</p>
+<ol>
+<li>編輯 Claude Desktop 配置檔案：</li>
+</ol>
+<blockquote>
+<p>在 Claude Desktop 的設定檔，添加以下內容，將我們的 MCP Server 註冊為可用服務：<br>MacOS: <code>~/Library/Application Support/Claude/claude_desktop_config.json</code><br>Windows: <code>%APPDATA%\Claude\claude_desktop_config.json</code></p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;mcpServers&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;tamagotchi-mcp-server&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/path/to/your/tamagotchi-mcp-server/tamagotchi-mcp-env/bin/python3&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;/path/to/your/tamagotchi-mcp-server/server.py&quot;</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>command：指向虛擬環境中的 Python 可執行檔路徑。</li>
+<li>args：指定 MCP Server 的程式檔案路徑。</li>
+<li>需將 &#x2F;path&#x2F;to&#x2F;your&#x2F;tamagotchi-mcp-server 替換為實際專案目錄。</li>
+</ul>
+<ol start="2">
+<li>啟動 Claude Desktop：<br>配置完成後，啟動 Claude Desktop，它會自動載入並運行 MCP Server，讓 AI 能夠透過命令與遊戲互動。</li>
+</ol>
+<p><b>ps. 請注意，每次修改設定檔都必須要重啟 Claude Desktop 才會生效</b></p>
+<h2 id="實作成果"><a href="#實作成果" class="headerlink" title="實作成果"></a>實作成果</h2><p>完成配置後，我可以透過 Claude Desktop 直接輸入這些自然語言指令，AI 會解析並呼叫對應的 MCP 工具，實現互動。</p>
+<p>以下是支援的基本動作及其對應功能，包含：</p>
+<ul>
+<li>「幫小雞取名字」：更改小雞名稱。</li>
+<li>「查看小雞狀況」：查詢當前狀態。</li>
+<li>「搖晃蛋」：加速蛋的孵化。</li>
+<li>「餵小雞吃飯」：降低飢餓。</li>
+<li>「跟小雞玩」：提升快樂。</li>
+<li>「讓小雞休息」：恢復能量。</li>
+<li>「幫小雞洗澡」：減少髒亂。</li>
+<li>「帶小雞看醫生」：恢復健康。</li>
+<li>「清理小雞的窩」：減少髒亂。</li>
+</ul>
+<p>成果出來感覺還不錯，遊戲雖然簡單，但用來摸索 MCP 已經很夠用了，之後可以再來試點新東西。</p>
+<p>GitHub 完整版：<a target="_blank" rel="noopener" href="https://github.com/wai-imyen/tamagotchi-mcp-server">tamagotchi-mcp-server</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AI/" rel="tag"># AI</a>
+              <a href="/tags/MCP-Server/" rel="tag"># MCP Server</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/useful-prompt/" rel="prev" title="日常實用 AI Prompt 分享">
+                  <i class="fa fa-angle-left"></i> 日常實用 AI Prompt 分享
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/use-f5-tts-generate-character-voice/" rel="next" title="使用 F5-TTS 生成 AI 角色語音">
+                  使用 F5-TTS 生成 AI 角色語音 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yen Chen</span>
+  </div>
+<div class="busuanzi-count">
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/letter-y-32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/letter-y-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/letter-y-16.png">
+  <link rel="mask-icon" href="/images/favicon/letter-y-32.png" color="#222">
+  <meta name="google-site-verification" content="11JLRSlxPHgAqf_9V60107y3L1Jt6b0AelwhcZDl90c">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wai-imyen.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="日常收集的一些實用 AI 提示詞，方便隨時複製貼上就能用，包含：好用的提示詞模式、實用框架收藏、日常實用模板等等。 一、好用的提示詞模式認知驗證模式 (Cognitive Verifier Pattern)當遇到複雜問題時，可以讓 AI 分解更深入的問題。 1當我問你一個問題時，生成三個相關輔助問題並回答它們。然後綜合這些答案來回答我的原始問題。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日常實用 AI Prompt 分享">
+<meta property="og:url" content="https://wai-imyen.github.io/posts/useful-prompt/index.html">
+<meta property="og:site_name" content="I&#39;m Yen">
+<meta property="og:description" content="日常收集的一些實用 AI 提示詞，方便隨時複製貼上就能用，包含：好用的提示詞模式、實用框架收藏、日常實用模板等等。 一、好用的提示詞模式認知驗證模式 (Cognitive Verifier Pattern)當遇到複雜問題時，可以讓 AI 分解更深入的問題。 1當我問你一個問題時，生成三個相關輔助問題並回答它們。然後綜合這些答案來回答我的原始問題。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-02-28T15:36:11.000Z">
+<meta property="article:modified_time" content="2025-02-28T15:36:11.000Z">
+<meta property="article:author" content="Yen Chen">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wai-imyen.github.io/posts/useful-prompt/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://wai-imyen.github.io/posts/useful-prompt/","path":"/posts/useful-prompt/","title":"日常實用 AI Prompt 分享"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>日常實用 AI Prompt 分享 | I'm Yen</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LCM8637ED"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-4LCM8637ED","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">I'm Yen</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">想到什麼寫什麼 🏝️</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%A5%BD%E7%94%A8%E7%9A%84%E6%8F%90%E7%A4%BA%E8%A9%9E%E6%A8%A1%E5%BC%8F"><span class="nav-text">一、好用的提示詞模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%8D%E7%9F%A5%E9%A9%97%E8%AD%89%E6%A8%A1%E5%BC%8F-Cognitive-Verifier-Pattern"><span class="nav-text">認知驗證模式 (Cognitive Verifier Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E6%8F%90%E7%A4%BA%E6%A8%A1%E5%BC%8F-Meta-Prompt-Pattern"><span class="nav-text">元提示模式 (Meta Prompt Pattern)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AF%A6%E7%94%A8%E6%A1%86%E6%9E%B6%E6%94%B6%E8%97%8F"><span class="nav-text">二、實用框架收藏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RACE-%E6%A1%86%E6%9E%B6%EF%BC%88Role-Action-Context-Expectations%EF%BC%89"><span class="nav-text">RACE 框架（Role, Action, Context, Expectations）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ITAP-%E6%A1%86%E6%9E%B6%EF%BC%88Input-Task-Annotation-Prediction%EF%BC%89"><span class="nav-text">ITAP 框架（Input, Task, Annotation, Prediction）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COAST-%E6%A1%86%E6%9E%B6%EF%BC%88Character-Objectives-Actions-Scenario-Task%EF%BC%89"><span class="nav-text">COAST 框架（Character, Objectives, Actions, Scenario, Task）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%97%A5%E5%B8%B8%E5%AF%A6%E7%94%A8%E6%A8%A1%E6%9D%BF"><span class="nav-text">三、日常實用模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA%E8%A9%9E%E6%94%B9%E9%80%B2"><span class="nav-text">提示詞改進</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90"><span class="nav-text">數據分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC%E7%94%9F%E6%88%90"><span class="nav-text">程式碼生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A7%E5%AE%B9%E5%89%B5%E4%BD%9C"><span class="nav-text">內容創作</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yen Chen"
+      src="/images/avatar/qb-head.jpg">
+  <p class="site-author-name" itemprop="name">Yen Chen</p>
+  <div class="site-description" itemprop="description">@wai-imyen</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wai-imyen" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wai-imyen" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wai-imyen@gmail.com" title="E-Mail → mailto:wai-imyen@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相關文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/tamagotchi-mcp-server/" rel="bookmark">
+        <time class="popular-posts-time">2025-03-29</time>
+        <br>
+      實作 MCP Server：以「電子雞養成遊戲」為例
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/use-f5-tts-generate-character-voice/" rel="bookmark">
+        <time class="popular-posts-time">2025-04-13</time>
+        <br>
+      使用 F5-TTS 生成 AI 角色語音
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://wai-imyen.github.io/posts/useful-prompt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/qb-head.jpg">
+      <meta itemprop="name" content="Yen Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Yen">
+      <meta itemprop="description" content="@wai-imyen">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="日常實用 AI Prompt 分享 | I'm Yen">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          日常實用 AI Prompt 分享
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2025-02-28 23:36:11" itemprop="dateCreated datePublished" datetime="2025-02-28T23:36:11+08:00">2025-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%87%89%E7%94%A8%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">應用工具</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>886</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>3 分鐘</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>日常收集的一些實用 AI 提示詞，方便隨時複製貼上就能用，包含：好用的提示詞模式、實用框架收藏、日常實用模板等等。</p>
+<h2 id="一、好用的提示詞模式"><a href="#一、好用的提示詞模式" class="headerlink" title="一、好用的提示詞模式"></a>一、好用的提示詞模式</h2><h3 id="認知驗證模式-Cognitive-Verifier-Pattern"><a href="#認知驗證模式-Cognitive-Verifier-Pattern" class="headerlink" title="認知驗證模式 (Cognitive Verifier Pattern)"></a>認知驗證模式 (Cognitive Verifier Pattern)</h3><p>當遇到複雜問題時，可以讓 AI 分解更深入的問題。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">當我問你一個問題時，生成三個相關輔助問題並回答它們。然後綜合這些答案來回答我的原始問題。</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h3 id="元提示模式-Meta-Prompt-Pattern"><a href="#元提示模式-Meta-Prompt-Pattern" class="headerlink" title="元提示模式 (Meta Prompt Pattern)"></a>元提示模式 (Meta Prompt Pattern)</h3><p>不確定自己的提示詞寫得好不好，可以用這個讓 AI 幫你改進。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">接下來，我會提供一個提示。請分析其清晰度和有效性，並提出改進建議。</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、實用框架收藏"><a href="#二、實用框架收藏" class="headerlink" title="二、實用框架收藏"></a>二、實用框架收藏</h2><h3 id="RACE-框架（Role-Action-Context-Expectations）"><a href="#RACE-框架（Role-Action-Context-Expectations）" class="headerlink" title="RACE 框架（Role, Action, Context, Expectations）"></a>RACE 框架（Role, Action, Context, Expectations）</h3><p>讓AI扮演專家角色，提供專業建議的好方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">扮演數據科學家（Role），分析以下數據集（Action），背景是零售銷售分析（Context），並提供改進建議（Expectations）。</span><br></pre></td></tr></table></figure>
+
+<h3 id="ITAP-框架（Input-Task-Annotation-Prediction）"><a href="#ITAP-框架（Input-Task-Annotation-Prediction）" class="headerlink" title="ITAP 框架（Input, Task, Annotation, Prediction）"></a>ITAP 框架（Input, Task, Annotation, Prediction）</h3><p>適合處理數據和文字分析：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">輸入數據是一段文本（Input），任務是分類情緒（Task），添加情緒標籤（Annotation），輸出格式為&quot;正面/中立/負面&quot;（Prediction）。</span><br></pre></td></tr></table></figure>
+
+<h3 id="COAST-框架（Character-Objectives-Actions-Scenario-Task）"><a href="#COAST-框架（Character-Objectives-Actions-Scenario-Task）" class="headerlink" title="COAST 框架（Character, Objectives, Actions, Scenario, Task）"></a>COAST 框架（Character, Objectives, Actions, Scenario, Task）</h3><p>想要創意內容或故事性內容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">扮演歷史學家（Character），目標是分析古代文明間的貿易路線（Objectives），描述每個路線的重要性（Actions）和背景故事（Scenario）。</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、日常實用模板"><a href="#三、日常實用模板" class="headerlink" title="三、日常實用模板"></a>三、日常實用模板</h2><h3 id="提示詞改進"><a href="#提示詞改進" class="headerlink" title="提示詞改進"></a>提示詞改進</h3><p>不確定自己寫的提示詞好不好時，可以 AI 幫忙調整：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">你是一位專業 Prompt 工程師，擅長優化提示以獲得最佳結果。當我提供一個初始提示時，你需要：</span><br><span class="line">1. 評估提示是否清晰、具體且有效。</span><br><span class="line">2. 修改提示以提高回應質量和相關性。</span><br><span class="line">3. 解釋修改原因並提出改進建議。</span><br><span class="line">規則：</span><br><span class="line">1. 使用 Markdown 格式撰寫回應，以便於閱讀和比較版本差異。</span><br><span class="line">2. 確保修改後的提示不超過 1500 字。</span><br></pre></td></tr></table></figure>
+
+<h3 id="數據分析"><a href="#數據分析" class="headerlink" title="數據分析"></a>數據分析</h3><p>當你有數據需要快速分析時：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">任務描述：請分析以下數據並提供建議。</span><br><span class="line">數據背景：[簡要說明數據集或問題，例如&quot;銷售數據下降原因&quot;]</span><br><span class="line">分析方法：[指定方法，例如&quot;趨勢分析、回歸模型&quot;]</span><br><span class="line">輸出要求：</span><br><span class="line">- 提供三個關鍵發現</span><br><span class="line">- 每個發現後附帶一條改進建議</span><br><span class="line">格式：</span><br><span class="line">發現1：[關鍵發現]  </span><br><span class="line">建議1：[改進建議]</span><br><span class="line"></span><br><span class="line">發現2：[關鍵發現]  </span><br><span class="line">建議2：[改進建議]</span><br><span class="line"></span><br><span class="line">發現3：[關鍵發現]  </span><br><span class="line">建議3：[改進建議]</span><br></pre></td></tr></table></figure>
+
+<h3 id="程式碼生成"><a href="#程式碼生成" class="headerlink" title="程式碼生成"></a>程式碼生成</h3><p>需要寫代碼但不想動腦：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">任務描述：請用[編程語言]實現以下功能。</span><br><span class="line">功能需求：[功能描述，例如&quot;計算兩個數的最大公約數&quot;]</span><br><span class="line">輸入：[輸入參數及其類型說明，例如&quot;兩個整數&quot;]</span><br><span class="line">輸出：[返回值及其類型說明，例如&quot;一個整數&quot;]</span><br><span class="line">代碼格式：</span><br></pre></td></tr></table></figure>
+
+<h3 id="內容創作"><a href="#內容創作" class="headerlink" title="內容創作"></a>內容創作</h3><p>需要寫部落格或文章大綱時：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">任務描述：請為以下主題撰寫博客大綱。</span><br><span class="line">主題：[主題名稱]</span><br><span class="line">目標讀者：[目標群體，如開發者、新手用戶等]</span><br><span class="line">輸出要求：</span><br><span class="line">- 大綱應包括一個主標題和至少三個小節，每個小節用一句話概述其內容。</span><br><span class="line">格式：</span><br><span class="line">主標題：[插入主標題]</span><br><span class="line">1. [小節標題] - [一句話描述]</span><br><span class="line">2. [小節標題] - [一句話描述]</span><br><span class="line">3. [小節標題] - [一句話描述]</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AI/" rel="tag"># AI</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/build-centos-8-lamp/" rel="prev" title="CentOS 8 架設 LAMP">
+                  <i class="fa fa-angle-left"></i> CentOS 8 架設 LAMP
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/tamagotchi-mcp-server/" rel="next" title="實作 MCP Server：以「電子雞養成遊戲」為例">
+                  實作 MCP Server：以「電子雞養成遊戲」為例 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yen Chen</span>
+  </div>
+<div class="busuanzi-count">
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
