@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+    <loc>https://wai-imyen.github.io</loc>
+    <lastmod>2025-04-17</lastmod>
+  </url>
   <url>
     <loc>https://wai-imyen.github.io/posts/use-f5-tts-generate-character-voice/</loc>
     <lastmod>2025-04-13</lastmod>
@@ -47,10 +51,6 @@
   <url>
     <loc>https://wai-imyen.github.io/posts/ssl-setting-apache-centos-7/</loc>
     <lastmod>2019-09-19</lastmod>
-  </url>
-  <url>
-    <loc>https://wai-imyen.github.io/</loc>
-    <lastmod>2025-04-17</lastmod>
   </url>
   <url>
     <loc>https://wai-imyen.github.io/tags/AWS/</loc>
