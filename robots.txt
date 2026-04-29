@@ -1,3 +1,2 @@
 User-agent: *
-Disallow:
-Sitemap: https://wai-imyen.github.io/sitemap.xml
+Disallow: *
